@@ -25,11 +25,11 @@ function CameraShot({ onCloseCamera, onCapture }) {
   };
 
   return (
-    <div style={{ position: "relative" }}>
+    <div className="relative">
       {capturedImage ? (
-        <img src={capturedImage} alt="Captured" style={{ width: "100%" }} />
+        <img src={capturedImage} alt="Captured" className="w-[100%]"/>
       ) : (
-        <Webcam height={600} width={600} ref={webcamRef} />
+        <Webcam height={500} width={500} ref={webcamRef} />
       )}
 
       {!capturedImage && (

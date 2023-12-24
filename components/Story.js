@@ -15,16 +15,19 @@ export default function Story() {
   const [showLeft, setShowLeft] = useState(false);
   const [showRight, setShowRight] = useState(true);
   const [selectedAvatar, setSelectedAvatar] = useState(null); // Seçilen avatarı saklayın
-  const [showScrollButton, setShowScrollButton] = useState(true);
+  const [showScrollButton, setShowScrollButton] = useState(true); //scroll butonların gösterilip gizleneceğini kontrol eder
 
+  // Kamera modu için state değişkenleri:
   const [isOpenCamera, setIsOpenCamera] = useState(false);
-  const [capturedPhoto, setCapturedPhoto] = useState(null);
+  const [capturedPhoto, setCapturedPhoto] = useState(null); // Yakalanan fotoğrafı saklamak için.
 
+  // Kamera açma işlevi:
   const handleOpenCamera = () => {
     setIsOpenCamera(true);
   };
   console.log(isOpenCamera);
 
+  // Sayfa kaydırıldığında ne olacağını kontrol eden fonksiyon:
   const onScroll = () => {
     if (storiesRef.current.scrollLeft > 0) {
       setShowLeft(true);
@@ -51,12 +54,16 @@ export default function Story() {
       setShowScrollButton(true);
     }
   }, [selectedStory]);
+
+  // Seçilen hikayenin süresi dolduğunda tetiklenen etkileşim:
   useEffect(() => {
     if (selectedStory) {
+       // Seçilen hikayenin toplam süresini hesapla:
       const totalDuration = selectedStory.reduce(
         (acc, story) => acc + (story.duration || 5000),
         0
       ); // Varsayılan süre: 5000 ms
+       // Seçilen hikayenin toplam süresi kadar beklet:
       const timer = setTimeout(() => {
         setSelectedStory(null); // Hikaye süresi dolduğunda sıfırla
       }, totalDuration);
@@ -65,6 +72,8 @@ export default function Story() {
     }
   }, [selectedStory]);
 
+
+  // Yakalanan fotoğraf varsa, avatar listesine ekleyen etkileşim:
   useEffect(() => {
     if (capturedPhoto) {
       const newAvatarList = avatars.map((avatar, index) => {
@@ -85,6 +94,7 @@ export default function Story() {
         return avatar;
       });
 
+       // Yeni avatar listesini set et ve fotoğrafı sıfırla:
       setAvatars(newAvatarList);
       setCapturedPhoto(null); // Fotoğrafı sıfırlayın
     }
