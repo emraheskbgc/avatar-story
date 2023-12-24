@@ -58,12 +58,12 @@ export default function Story() {
   // Seçilen hikayenin süresi dolduğunda tetiklenen etkileşim:
   useEffect(() => {
     if (selectedStory) {
-       // Seçilen hikayenin toplam süresini hesapla:
+      // Seçilen hikayenin toplam süresini hesapla:
       const totalDuration = selectedStory.reduce(
         (acc, story) => acc + (story.duration || 5000),
         0
       ); // Varsayılan süre: 5000 ms
-       // Seçilen hikayenin toplam süresi kadar beklet:
+      // Seçilen hikayenin toplam süresi kadar beklet:
       const timer = setTimeout(() => {
         setSelectedStory(null); // Hikaye süresi dolduğunda sıfırla
       }, totalDuration);
@@ -71,7 +71,6 @@ export default function Story() {
       return () => clearTimeout(timer); // Component unmount olduğunda timer'ı temizle
     }
   }, [selectedStory]);
-
 
   // Yakalanan fotoğraf varsa, avatar listesine ekleyen etkileşim:
   useEffect(() => {
@@ -94,7 +93,7 @@ export default function Story() {
         return avatar;
       });
 
-       // Yeni avatar listesini set et ve fotoğrafı sıfırla:
+      // Yeni avatar listesini set et ve fotoğrafı sıfırla:
       setAvatars(newAvatarList);
       setCapturedPhoto(null); // Fotoğrafı sıfırlayın
     }
@@ -160,6 +159,7 @@ export default function Story() {
           <CameraShot
             onCloseCamera={() => setIsOpenCamera(false)}
             onCapture={setCapturedPhoto}
+            onShareToStory={() => {setSelectedStory(null)}}
           />
         </div>
       )}
