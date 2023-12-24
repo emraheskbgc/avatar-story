@@ -322,34 +322,34 @@ export default function Story() {
         ))}
       </div>
       {showScrollButton && (
-        <div className="absolute top-0 p-4 h-full flex justify-between z-10 items-center w-full pointer-events-none">
-          <div className="left-0 pl-4 pointer-events-auto">
-            <button
-              onClick={() => {
-                storiesRef.current.scrollLeft -= 200;
-              }}
-            >
-              <FaCircleChevronLeft
-                className={`w-5 h-5 cursor-pointer drop-shadow-lg text-white filter ${
-                  showLeft ? "visible" : "invisible"
-                }`}
-              />
-            </button>
+          <div className=" hidden md:flex absolute top-0 p-4 h-full flex justify-between z-10 items-center w-full pointer-events-none">
+            <div className="left-0 pl-4 pointer-events-auto">
+              <button
+                onClick={() => {
+                  storiesRef.current.scrollLeft -= 200;
+                }}
+              >
+                <FaCircleChevronLeft
+                  className={`w-5 h-5 cursor-pointer drop-shadow-lg text-white filter ${
+                    showLeft ? "visible" : "invisible"
+                  }`}
+                />
+              </button>
+            </div>
+            <div className="right-0 pr-4 pointer-events-auto">
+              <button
+                onClick={() => {
+                  storiesRef.current.scrollLeft += 200;
+                }}
+              >
+                <FaCircleChevronRight
+                  className={`w-5 h-5 cursor-pointer drop-shadow-lg  text-white filter ${
+                    showRight ? "visible" : "invisible"
+                  }`}
+                />
+              </button>
+            </div>
           </div>
-          <div className="right-0 pr-4 pointer-events-auto">
-            <button
-              onClick={() => {
-                storiesRef.current.scrollLeft += 200;
-              }}
-            >
-              <FaCircleChevronRight
-                className={`w-5 h-5 cursor-pointer drop-shadow-lg  text-white filter ${
-                  showRight ? "visible" : "invisible"
-                }`}
-              />
-            </button>
-          </div>
-        </div>
       )}
 
       {selectedStory && (
