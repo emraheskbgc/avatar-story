@@ -6,15 +6,13 @@ import { FaCircleChevronRight } from "react-icons/fa6";
 import { FaCircleChevronLeft } from "react-icons/fa6";
 import { FaCirclePlus } from "react-icons/fa6";
 
-
-
 export default function Story() {
   const [selectedStory, setSelectedStory] = useState(null);
   const storiesRef = useRef(null);
   const [showLeft, setShowLeft] = useState(false);
   const [showRight, setShowRight] = useState(true);
   const [selectedAvatar, setSelectedAvatar] = useState(null); // Seçilen avatarı saklayın
-  const [showScrollButton, setShowScrollButton] = useState(true); 
+  const [showScrollButton, setShowScrollButton] = useState(true);
 
   const onScroll = () => {
     if (storiesRef.current.scrollLeft > 0) {
@@ -255,13 +253,13 @@ export default function Story() {
   const handleAvatarClick = (avatar) => {
     setSelectedStory(avatar.story); // Seçilen avatarın hikayesini set edin.
     setSelectedAvatar(avatar); // Seçilen avatarı set edin.
-    setShowScrollButton(false)
+    setShowScrollButton(false);
   };
   useEffect(() => {
     if (!selectedStory) {
-      setShowScrollButton(true)
+      setShowScrollButton(true);
     }
-  },[selectedStory])
+  }, [selectedStory]);
   useEffect(() => {
     if (selectedStory) {
       const totalDuration = selectedStory.reduce(
@@ -285,32 +283,29 @@ export default function Story() {
     padding: "10px", // Kapatma düğmesini konumlandırmak için biraz dolgu ekleyin
   };
 
- 
- 
   return (
-    <div className="relative w-full h-screen overflow-hidden">
-    
+    <div className="relative md:w-max w-full md:h-auto h-screen   overflow-hidden border">
       <div
         onScroll={onScroll}
         ref={storiesRef}
         className="flex space-x-2  overflow-x-scroll max-w-xl bg-white border-gray-200 p-4 scroll-smooth scrollbar-hide"
       >
-      <div >
-      <div className="relative bg-gradient-to-tr from-yellow-500 to-red-600 p-[1.5px] rounded-full">
-        <div className="bg-white rounded-full p-1">
-          <img
-            className="w-14 h-14 cursor-pointer rounded-full"
-            src={avatars[0].avatar}
-            alt=""
-          />
+        <div>
+          <div className="relative bg-gradient-to-tr from-yellow-500 to-red-600 p-[1.5px] rounded-full">
+            <div className="bg-white rounded-full p-1">
+              <img
+                className="w-14 h-14 cursor-pointer rounded-full"
+                src={avatars[0].avatar}
+                alt=""
+              />
+            </div>
+            <div className="plusIcon">
+              <FaCirclePlus />
+            </div>
+          </div>
+
+          <p className="text-xs w-16 truncate text-center"> emrah</p>
         </div>
-        <div className="plusIcon">
-          <FaCirclePlus />
-        </div>
-      </div>
-     
-      <p className="text-xs w-16 truncate text-center"> emrah</p>
-    </div>
         {avatars.map((avatar) => (
           <div key={avatar.id} onClick={() => handleAvatarClick(avatar)}>
             <div className="bg-gradient-to-tr from-yellow-500 to-red-600 p-[1.5px] rounded-full">
@@ -326,36 +321,36 @@ export default function Story() {
           </div>
         ))}
       </div>
-      {
-        showScrollButton && <div className="absolute top-0 p-4 h-full flex justify-between z-10 items-center w-full pointer-events-none">
-        <div className="left-0 pl-4 pointer-events-auto">
-          <button
-            onClick={() => {
-              storiesRef.current.scrollLeft -= 200;
-            }}
-          >
-            <FaCircleChevronLeft
-              className={`w-5 h-5 cursor-pointer drop-shadow-lg text-white filter ${
-                showLeft ? "visible" : "invisible"
-              }`}
-            />
-          </button>
+      {showScrollButton && (
+        <div className="absolute top-0 p-4 h-full flex justify-between z-10 items-center w-full pointer-events-none">
+          <div className="left-0 pl-4 pointer-events-auto">
+            <button
+              onClick={() => {
+                storiesRef.current.scrollLeft -= 200;
+              }}
+            >
+              <FaCircleChevronLeft
+                className={`w-5 h-5 cursor-pointer drop-shadow-lg text-white filter ${
+                  showLeft ? "visible" : "invisible"
+                }`}
+              />
+            </button>
+          </div>
+          <div className="right-0 pr-4 pointer-events-auto">
+            <button
+              onClick={() => {
+                storiesRef.current.scrollLeft += 200;
+              }}
+            >
+              <FaCircleChevronRight
+                className={`w-5 h-5 cursor-pointer drop-shadow-lg  text-white filter ${
+                  showRight ? "visible" : "invisible"
+                }`}
+              />
+            </button>
+          </div>
         </div>
-        <div className="right-0 pr-4 pointer-events-auto">
-          <button
-            onClick={() => {
-              storiesRef.current.scrollLeft += 200;
-            }}
-          >
-            <FaCircleChevronRight
-              className={`w-5 h-5 cursor-pointer drop-shadow-lg  text-white filter ${
-                showRight ? "visible" : "invisible"
-              }`}
-            />
-          </button>
-        </div>
-      </div>
-      }
+      )}
 
       {selectedStory && (
         <div className="fullScreenStyle">
@@ -377,16 +372,11 @@ export default function Story() {
             </div>
           )}
 
-          <div className="storyContainerStyle"> 
-             <Stories stories={selectedStory} storyStyles={storyContent} />
+          <div className="storyContainerStyle">
+            <Stories stories={selectedStory} storyStyles={storyContent} />
           </div>
-       
-         
-          
         </div>
       )}
-
-      
     </div>
   );
 }
