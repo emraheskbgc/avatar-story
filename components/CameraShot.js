@@ -33,23 +33,14 @@ function CameraShot({ onCloseCamera, onCapture }) {
             >
                 Fotoğraf Çek
             </button>
-    <button 
-        onClick={handleCloseCamera} 
-        style={{ 
-            position: 'absolute', 
-            top: '10px', 
-            right: '10px', 
-            padding: '5px', 
-            cursor: 'pointer', 
-            backgroundColor: 'red', 
-            color: 'white', 
-            borderRadius: '50%' 
-        }}
+    <button onClick={handleCloseCamera}
+       className='absolute top-[10px] right-[10px] p-[5px] cursor-pointer bg-red-300 text-white rounded-full'
     >
         X
     </button>
 </div>
   )
 }
+
 
 export default CameraShot

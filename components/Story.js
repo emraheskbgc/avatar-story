@@ -316,7 +316,7 @@ export default function Story() {
         ref={storiesRef}
         className="flex space-x-2  overflow-x-scroll max-w-xl bg-white border-gray-200 p-4 scroll-smooth scrollbar-hide"
       >
-        <div>
+        <div onClick={() => handleAvatarClick(avatars[0])}>
           <div className="relative bg-gradient-to-tr from-yellow-500 to-red-600 p-[1.5px] rounded-full">
             <div className="bg-white rounded-full p-1" >
               <img
@@ -332,7 +332,7 @@ export default function Story() {
 
           <p className="text-xs w-16 truncate text-center"> {avatars[0].name}</p>
         </div>
-        {avatars.map((avatar) => (
+        {avatars.slice(1).map((avatar) => (
           <div key={avatar.id} onClick={() => handleAvatarClick(avatar)}>
             <div className="bg-gradient-to-tr from-yellow-500 to-red-600 p-[1.5px] rounded-full">
               <div className="bg-white rounded-full p-1">
