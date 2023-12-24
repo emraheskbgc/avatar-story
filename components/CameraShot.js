@@ -2,7 +2,7 @@
 import React, { useRef, useState } from "react";
 import Webcam from "react-webcam";
 
-function CameraShot({ onCloseCamera, onCapture }) {
+function CameraShot({ onCloseCamera, onCapture, onShareToStory }) {
   const webcamRef = useRef(null);
   const [capturedImage, setCapturedImage] = useState(null); // Çekilen fotoğrafın URL'si için state
   const handleCloseCamera = () => {
