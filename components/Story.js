@@ -5,6 +5,7 @@ import "stories-react/dist/index.css";
 import { FaCircleChevronRight } from "react-icons/fa6";
 import { FaCircleChevronLeft } from "react-icons/fa6";
 import { FaCirclePlus } from "react-icons/fa6";
+import CameraShot from "./CameraShot";
 
 export default function Story() {
   const [selectedStory, setSelectedStory] = useState(null);
@@ -13,6 +14,14 @@ export default function Story() {
   const [showRight, setShowRight] = useState(true);
   const [selectedAvatar, setSelectedAvatar] = useState(null); // Seçilen avatarı saklayın
   const [showScrollButton, setShowScrollButton] = useState(true);
+
+  const[isOpenCamera, setIsOpenCamera] = useState(false)
+  const [capturedPhoto, setCapturedPhoto] = useState(null);
+
+  const handleOpenCamera = () => {
+    setIsOpenCamera(true)
+  }
+  console.log(isOpenCamera);
 
   const onScroll = () => {
     if (storiesRef.current.scrollLeft > 0) {
@@ -29,24 +38,18 @@ export default function Story() {
       setShowRight(true);
     }
   };
-  const avatars = [
+  const [avatars, setAvatars] = useState([
     {
       id: 1,
-      name: "Avatar 1",
-      avatar: "https://reqres.in/img/faces/1-image.jpg",
+      name: "emrah",
+      avatar: "/images/emrah.jpg",
 
       story: [
         {
           type: "image",
           url: "https://images.pexels.com/photos/9470805/pexels-photo-9470805.jpeg?w=300",
           duration: 5000,
-        },
-        {
-          type: "image",
-          url: "https://images.pexels.com/photos/9733197/pexels-photo-9733197.jpeg?w=300",
-          duration: 6000,
-        },
-        // Diğer hikaye öğeleri...
+        }
       ],
     },
     {
@@ -248,8 +251,8 @@ export default function Story() {
       ],
     },
     // Diğer avatarlar...
-  ];
-
+  ]
+) 
   const handleAvatarClick = (avatar) => {
     setSelectedStory(avatar.story); // Seçilen avatarın hikayesini set edin.
     setSelectedAvatar(avatar); // Seçilen avatarı set edin.
@@ -282,6 +285,29 @@ export default function Story() {
     margin: "auto",
     padding: "10px", // Kapatma düğmesini konumlandırmak için biraz dolgu ekleyin
   };
+  useEffect(() => {
+    if (capturedPhoto) {
+        const newAvatarList = avatars.map((avatar, index) => {
+            if (index === 0) { // 1. indexli avatar
+                return {
+                    ...avatar,
+                    story: [
+                        ...avatar.story,
+                        {
+                            type: 'image',
+                            url: capturedPhoto,
+                            duration: 5000 // Örnek süre
+                        }
+                    ]
+                };
+            }
+            return avatar;
+        });
+
+        setAvatars(newAvatarList);
+        setCapturedPhoto(null); // Fotoğrafı sıfırlayın
+    }
+}, [capturedPhoto]);
 
   return (
     <div className="relative md:w-max w-full md:h-auto h-screen   overflow-hidden border">
@@ -292,19 +318,19 @@ export default function Story() {
       >
         <div>
           <div className="relative bg-gradient-to-tr from-yellow-500 to-red-600 p-[1.5px] rounded-full">
-            <div className="bg-white rounded-full p-1">
+            <div className="bg-white rounded-full p-1" >
               <img
                 className="w-14 h-14 cursor-pointer rounded-full"
                 src={avatars[0].avatar}
                 alt=""
               />
             </div>
-            <div className="plusIcon">
-              <FaCirclePlus />
+            <div className="plusIcon cursor-pointer">
+              <FaCirclePlus  onClick={handleOpenCamera}/>
             </div>
           </div>
 
-          <p className="text-xs w-16 truncate text-center"> emrah</p>
+          <p className="text-xs w-16 truncate text-center"> {avatars[0].name}</p>
         </div>
         {avatars.map((avatar) => (
           <div key={avatar.id} onClick={() => handleAvatarClick(avatar)}>
@@ -353,7 +379,7 @@ export default function Story() {
       )}
 
       {selectedStory && (
-        <div className="fullScreenStyle">
+        <div className="fullScreenStyle ">
           {/* Kapatma düğmesi */}
           <div
             className="absolute text-white top-9 right-8 cursor-pointer z-[1000]"
@@ -377,6 +403,12 @@ export default function Story() {
           </div>
         </div>
       )}
+      {
+        isOpenCamera && <div className="fullScreenStyle">
+        <CameraShot onCloseCamera={() => setIsOpenCamera(false)}  onCapture={setCapturedPhoto}  />
+        </div>
+      }
+      
     </div>
   );
 }
