@@ -1,11 +1,13 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
-import Stories from "stories-react";
 import "stories-react/dist/index.css";
-import { FaCircleChevronRight } from "react-icons/fa6";
-import { FaCircleChevronLeft } from "react-icons/fa6";
 import { FaCirclePlus } from "react-icons/fa6";
+
 import CameraShot from "./CameraShot";
+import Avatar from "./Avatar";
+import ScrollButtons from "./ScrollButtons";
+import FullScreenStory from "./FullScreenStory";
+import avatarDatas from "../data/avatars.json";
 
 export default function Story() {
   const [selectedStory, setSelectedStory] = useState(null);
@@ -15,12 +17,12 @@ export default function Story() {
   const [selectedAvatar, setSelectedAvatar] = useState(null); // Seçilen avatarı saklayın
   const [showScrollButton, setShowScrollButton] = useState(true);
 
-  const[isOpenCamera, setIsOpenCamera] = useState(false)
+  const [isOpenCamera, setIsOpenCamera] = useState(false);
   const [capturedPhoto, setCapturedPhoto] = useState(null);
 
   const handleOpenCamera = () => {
-    setIsOpenCamera(true)
-  }
+    setIsOpenCamera(true);
+  };
   console.log(isOpenCamera);
 
   const onScroll = () => {
@@ -30,7 +32,7 @@ export default function Story() {
       setShowLeft(false);
     }
     if (
-      storiesRef.current.scrollLeft ==
+      storiesRef.current.scrollLeft ===
       storiesRef.current.scrollWidth - storiesRef.current.clientWidth
     ) {
       setShowRight(false);
@@ -38,221 +40,7 @@ export default function Story() {
       setShowRight(true);
     }
   };
-  const [avatars, setAvatars] = useState([
-    {
-      id: 1,
-      name: "emrah",
-      avatar: "/images/emrah.jpg",
-
-      story: [
-        {
-          type: "image",
-          url: "https://images.pexels.com/photos/9470805/pexels-photo-9470805.jpeg?w=300",
-          duration: 5000,
-        }
-      ],
-    },
-    {
-      id: 2,
-      name: "Avatar 1",
-      avatar: "https://reqres.in/img/faces/1-image.jpg",
-
-      story: [
-        {
-          type: "image",
-          url: "https://images.pexels.com/photos/9470805/pexels-photo-9470805.jpeg?w=300",
-          duration: 5000,
-        },
-        {
-          type: "image",
-          url: "https://images.pexels.com/photos/9733197/pexels-photo-9733197.jpeg?w=300",
-          duration: 6000,
-        },
-        // Diğer hikaye öğeleri...
-      ],
-    },
-    {
-      id: 3,
-      name: "Avatar 2",
-      avatar: "https://reqres.in/img/faces/2-image.jpg",
-
-      story: [
-        {
-          type: "image",
-          url: "https://images.pexels.com/photos/9733197/pexels-photo-9733197.jpeg?w=300",
-          duration: 6000,
-        },
-        // Diğer hikaye öğeleri...
-      ],
-    },
-    {
-      id: 4,
-      name: "Avatar 1",
-      avatar: "https://reqres.in/img/faces/1-image.jpg",
-
-      story: [
-        {
-          type: "image",
-          url: "https://images.pexels.com/photos/9470805/pexels-photo-9470805.jpeg?w=300",
-          duration: 5000,
-        },
-        {
-          type: "image",
-          url: "https://images.pexels.com/photos/9733197/pexels-photo-9733197.jpeg?w=300",
-          duration: 6000,
-        },
-        // Diğer hikaye öğeleri...
-      ],
-    },
-    {
-      id: 5,
-      name: "Avatar 2",
-      avatar: "https://reqres.in/img/faces/2-image.jpg",
-
-      story: [
-        {
-          type: "image",
-          url: "https://images.pexels.com/photos/9733197/pexels-photo-9733197.jpeg?w=300",
-          duration: 6000,
-        },
-        // Diğer hikaye öğeleri...
-      ],
-    },
-    {
-      id: 6,
-      name: "Avatar 1",
-      avatar: "https://reqres.in/img/faces/1-image.jpg",
-
-      story: [
-        {
-          type: "image",
-          url: "https://images.pexels.com/photos/9470805/pexels-photo-9470805.jpeg?w=300",
-          duration: 5000,
-        },
-        {
-          type: "image",
-          url: "https://images.pexels.com/photos/9733197/pexels-photo-9733197.jpeg?w=300",
-          duration: 6000,
-        },
-        // Diğer hikaye öğeleri...
-      ],
-    },
-    {
-      id: 7,
-      name: "Avatar 2",
-      avatar: "https://reqres.in/img/faces/2-image.jpg",
-
-      story: [
-        {
-          type: "image",
-          url: "https://images.pexels.com/photos/9733197/pexels-photo-9733197.jpeg?w=300",
-          duration: 6000,
-        },
-        // Diğer hikaye öğeleri...
-      ],
-    },
-    {
-      id: 8,
-      name: "Avatar 1",
-      avatar: "https://reqres.in/img/faces/1-image.jpg",
-
-      story: [
-        {
-          type: "image",
-          url: "https://images.pexels.com/photos/9470805/pexels-photo-9470805.jpeg?w=300",
-          duration: 5000,
-        },
-        {
-          type: "image",
-          url: "https://images.pexels.com/photos/9733197/pexels-photo-9733197.jpeg?w=300",
-          duration: 6000,
-        },
-        // Diğer hikaye öğeleri...
-      ],
-    },
-    {
-      id: 9,
-      name: "Avatar 2",
-      avatar: "https://reqres.in/img/faces/2-image.jpg",
-
-      story: [
-        {
-          type: "image",
-          url: "https://images.pexels.com/photos/9733197/pexels-photo-9733197.jpeg?w=300",
-          duration: 6000,
-        },
-        // Diğer hikaye öğeleri...
-      ],
-    },
-    {
-      id: 10,
-      name: "Avatar 1",
-      avatar: "https://reqres.in/img/faces/1-image.jpg",
-
-      story: [
-        {
-          type: "image",
-          url: "https://images.pexels.com/photos/9470805/pexels-photo-9470805.jpeg?w=300",
-          duration: 5000,
-        },
-        {
-          type: "image",
-          url: "https://images.pexels.com/photos/9733197/pexels-photo-9733197.jpeg?w=300",
-          duration: 6000,
-        },
-        // Diğer hikaye öğeleri...
-      ],
-    },
-    {
-      id: 11,
-      name: "Avatar 2",
-      avatar: "https://reqres.in/img/faces/2-image.jpg",
-
-      story: [
-        {
-          type: "image",
-          url: "https://images.pexels.com/photos/9733197/pexels-photo-9733197.jpeg?w=300",
-          duration: 6000,
-        },
-        // Diğer hikaye öğeleri...
-      ],
-    },
-    {
-      id: 12,
-      name: "Avatar 1",
-      avatar: "https://reqres.in/img/faces/1-image.jpg",
-
-      story: [
-        {
-          type: "image",
-          url: "https://images.pexels.com/photos/9470805/pexels-photo-9470805.jpeg?w=300",
-          duration: 5000,
-        },
-        {
-          type: "image",
-          url: "https://images.pexels.com/photos/9733197/pexels-photo-9733197.jpeg?w=300",
-          duration: 6000,
-        },
-        // Diğer hikaye öğeleri...
-      ],
-    },
-    {
-      id: 13,
-      name: "Avatar 2",
-      avatar: "https://reqres.in/img/faces/2-image.jpg",
-
-      story: [
-        {
-          type: "image",
-          url: "https://images.pexels.com/photos/9733197/pexels-photo-9733197.jpeg?w=300",
-          duration: 6000,
-        },
-        // Diğer hikaye öğeleri...
-      ],
-    },
-    // Diğer avatarlar...
-  ]
-) 
+  const [avatars, setAvatars] = useState(avatarDatas);
   const handleAvatarClick = (avatar) => {
     setSelectedStory(avatar.story); // Seçilen avatarın hikayesini set edin.
     setSelectedAvatar(avatar); // Seçilen avatarı set edin.
@@ -277,37 +65,30 @@ export default function Story() {
     }
   }, [selectedStory]);
 
-  const storyContent = {
-    position: "relative",
-    width: "auto",
-    maxWidth: "100%",
-    maxHeight: "100%",
-    margin: "auto",
-    padding: "10px", // Kapatma düğmesini konumlandırmak için biraz dolgu ekleyin
-  };
   useEffect(() => {
     if (capturedPhoto) {
-        const newAvatarList = avatars.map((avatar, index) => {
-            if (index === 0) { // 1. indexli avatar
-                return {
-                    ...avatar,
-                    story: [
-                        ...avatar.story,
-                        {
-                            type: 'image',
-                            url: capturedPhoto,
-                            duration: 5000 // Örnek süre
-                        }
-                    ]
-                };
-            }
-            return avatar;
-        });
+      const newAvatarList = avatars.map((avatar, index) => {
+        if (index === 0) {
+          // 1. indexli avatar
+          return {
+            ...avatar,
+            story: [
+              ...avatar.story,
+              {
+                type: "image",
+                url: capturedPhoto,
+                duration: 5000, // Örnek süre
+              },
+            ],
+          };
+        }
+        return avatar;
+      });
 
-        setAvatars(newAvatarList);
-        setCapturedPhoto(null); // Fotoğrafı sıfırlayın
+      setAvatars(newAvatarList);
+      setCapturedPhoto(null); // Fotoğrafı sıfırlayın
     }
-}, [capturedPhoto]);
+  }, [capturedPhoto]);
 
   return (
     <div className="relative md:w-max w-full md:h-auto h-screen   overflow-hidden border">
@@ -318,7 +99,7 @@ export default function Story() {
       >
         <div onClick={() => handleAvatarClick(avatars[0])}>
           <div className="relative bg-gradient-to-tr from-yellow-500 to-red-600 p-[1.5px] rounded-full">
-            <div className="bg-white rounded-full p-1" >
+            <div className="bg-white rounded-full p-1">
               <img
                 className="w-14 h-14 cursor-pointer rounded-full"
                 src={avatars[0].avatar}
@@ -326,89 +107,52 @@ export default function Story() {
               />
             </div>
             <div className="plusIcon cursor-pointer">
-              <FaCirclePlus  onClick={handleOpenCamera}/>
+              <FaCirclePlus onClick={handleOpenCamera} />
             </div>
           </div>
 
-          <p className="text-xs w-16 truncate text-center"> {avatars[0].name}</p>
+          <p className="text-xs w-16 truncate text-center">
+            {" "}
+            {avatars[0].name}
+          </p>
         </div>
         {avatars.slice(1).map((avatar) => (
-          <div key={avatar.id} onClick={() => handleAvatarClick(avatar)}>
-            <div className="bg-gradient-to-tr from-yellow-500 to-red-600 p-[1.5px] rounded-full">
-              <div className="bg-white rounded-full p-1">
-                <img
-                  className="w-14 h-14 cursor-pointer rounded-full"
-                  src={avatar.avatar}
-                  alt=""
-                />
-              </div>
-            </div>
-            <p className="text-xs w-16 truncate text-center"> {avatar.name}</p>
-          </div>
+          <Avatar
+            key={avatar.id}
+            avatarSrc={avatar.avatar}
+            name={avatar.name}
+            onClick={() => handleAvatarClick(avatar)}
+          />
         ))}
       </div>
       {showScrollButton && (
-          <div className=" hidden md:flex absolute top-0 p-4 h-full flex justify-between z-10 items-center w-full pointer-events-none">
-            <div className="left-0 pl-4 pointer-events-auto">
-              <button
-                onClick={() => {
-                  storiesRef.current.scrollLeft -= 200;
-                }}
-              >
-                <FaCircleChevronLeft
-                  className={`w-5 h-5 cursor-pointer drop-shadow-lg text-white filter ${
-                    showLeft ? "visible" : "invisible"
-                  }`}
-                />
-              </button>
-            </div>
-            <div className="right-0 pr-4 pointer-events-auto">
-              <button
-                onClick={() => {
-                  storiesRef.current.scrollLeft += 200;
-                }}
-              >
-                <FaCircleChevronRight
-                  className={`w-5 h-5 cursor-pointer drop-shadow-lg  text-white filter ${
-                    showRight ? "visible" : "invisible"
-                  }`}
-                />
-              </button>
-            </div>
-          </div>
+        <ScrollButtons
+          onLeftClick={() => {
+            storiesRef.current.scrollLeft -= 200;
+          }}
+          onRightClick={() => {
+            storiesRef.current.scrollLeft += 200;
+          }}
+          showLeft={showLeft}
+          showRight={showRight}
+        />
       )}
 
       {selectedStory && (
-        <div className="fullScreenStyle ">
-          {/* Kapatma düğmesi */}
-          <div
-            className="absolute text-white top-9 right-8 cursor-pointer z-[1000]"
-            onClick={() => setSelectedStory(null)}
-          >
-            X
-          </div>
-          {selectedAvatar && (
-            <div className="flex justify-center items-center absolute top-8 left-8 z-[1000]">
-              <img
-                src={selectedAvatar.avatar}
-                alt={selectedAvatar.name}
-                className="w-[40px] h-[40px] rounded-full mr-3 "
-              />
-              <p className="text-white font-[16px]">{selectedAvatar.name}</p>
-            </div>
-          )}
-
-          <div className="storyContainerStyle">
-            <Stories stories={selectedStory} storyStyles={storyContent} />
-          </div>
+        <FullScreenStory
+          selectedStory={selectedStory}
+          selectedAvatar={selectedAvatar}
+          onClose={() => setSelectedStory(null)} // Bu fonksiyonu kapatma işlemi için ayarlayabilirsiniz
+        />
+      )}
+      {isOpenCamera && (
+        <div className="fullScreenStyle">
+          <CameraShot
+            onCloseCamera={() => setIsOpenCamera(false)}
+            onCapture={setCapturedPhoto}
+          />
         </div>
       )}
-      {
-        isOpenCamera && <div className="fullScreenStyle">
-        <CameraShot onCloseCamera={() => setIsOpenCamera(false)}  onCapture={setCapturedPhoto}  />
-        </div>
-      }
-      
     </div>
   );
 }

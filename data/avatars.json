@@ -1,0 +1,202 @@
+[
+    {
+      "id": 1,
+      "name": "emrah",
+      "avatar": "/images/emrah.jpg",
+
+      "story": [
+        {
+          "type": "image",
+          "url": "https://images.pexels.com/photos/9470805/pexels-photo-9470805.jpeg?w=300",
+          "duration": 5000
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Avatar 1",
+      "avatar": "https://reqres.in/img/faces/1-image.jpg",
+
+      "story": [
+        {
+          "type": "image",
+          "url": "https://images.pexels.com/photos/9470805/pexels-photo-9470805.jpeg?w=300",
+          "duration": 5000
+        },
+        {
+          "type": "image",
+          "url": "https://images.pexels.com/photos/9733197/pexels-photo-9733197.jpeg?w=300",
+          "duration": 6000
+        }
+       
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Avatar 2",
+      "avatar": "https://reqres.in/img/faces/2-image.jpg",
+
+      "story": [
+        {
+          "type": "image",
+          "url": "https://images.pexels.com/photos/9733197/pexels-photo-9733197.jpeg?w=300",
+          "duration": 6000
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Avatar 1",
+      "avatar": "https://reqres.in/img/faces/1-image.jpg",
+
+      "story": [
+        {
+          "type": "image",
+          "url": "https://images.pexels.com/photos/9470805/pexels-photo-9470805.jpeg?w=300",
+          "duration": 5000
+        },
+        {
+          "type": "image",
+          "url": "https://images.pexels.com/photos/9733197/pexels-photo-9733197.jpeg?w=300",
+          "duration": 6000
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Avatar 2",
+      "avatar": "https://reqres.in/img/faces/2-image.jpg",
+
+      "story": [
+        {
+          "type": "image",
+          "url": "https://images.pexels.com/photos/9733197/pexels-photo-9733197.jpeg?w=300",
+          "duration": 6000
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Avatar 1",
+      "avatar": "https://reqres.in/img/faces/1-image.jpg",
+
+      "story": [
+        {
+          "type": "image",
+          "url": "https://images.pexels.com/photos/9470805/pexels-photo-9470805.jpeg?w=300",
+          "duration": 5000
+        },
+        {
+          "type": "image",
+          "url": "https://images.pexels.com/photos/9733197/pexels-photo-9733197.jpeg?w=300",
+          "duration": 6000
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Avatar 2",
+      "avatar": "https://reqres.in/img/faces/2-image.jpg",
+
+      "story": [
+        {
+          "type": "image",
+          "url": "https://images.pexels.com/photos/9733197/pexels-photo-9733197.jpeg?w=300",
+          "duration": 6000
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Avatar 1",
+      "avatar": "https://reqres.in/img/faces/1-image.jpg",
+
+      "story": [
+        {
+          "type": "image",
+          "url": "https://images.pexels.com/photos/9470805/pexels-photo-9470805.jpeg?w=300",
+          "duration": 5000
+        },
+        {
+          "type": "image",
+          "url": "https://images.pexels.com/photos/9733197/pexels-photo-9733197.jpeg?w=300",
+          "duration": 6000
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Avatar 2",
+      "avatar": "https://reqres.in/img/faces/2-image.jpg",
+
+      "story": [
+        {
+          "type": "image",
+          "url": "https://images.pexels.com/photos/9733197/pexels-photo-9733197.jpeg?w=300",
+          "duration": 6000
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Avatar 1",
+      "avatar": "https://reqres.in/img/faces/1-image.jpg",
+
+      "story": [
+        {
+          "type": "image",
+          "url": "https://images.pexels.com/photos/9470805/pexels-photo-9470805.jpeg?w=300",
+          "duration": 5000
+        },
+        {
+          "type": "image",
+          "url": "https://images.pexels.com/photos/9733197/pexels-photo-9733197.jpeg?w=300",
+          "duration": 6000
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "name": "Avatar 2",
+      "avatar": "https://reqres.in/img/faces/2-image.jpg",
+
+      "story": [
+        {
+          "type": "image",
+          "url": "https://images.pexels.com/photos/9733197/pexels-photo-9733197.jpeg?w=300",
+          "duration": 6000
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Avatar 1",
+      "avatar": "https://reqres.in/img/faces/1-image.jpg",
+
+      "story": [
+        {
+          "type": "image",
+          "url": "https://images.pexels.com/photos/9470805/pexels-photo-9470805.jpeg?w=300",
+          "duration": 5000
+        },
+        {
+          "type": "image",
+          "url": "https://images.pexels.com/photos/9733197/pexels-photo-9733197.jpeg?w=300",
+          "duration": 6000
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "name": "Avatar 2",
+      "avatar": "https://reqres.in/img/faces/2-image.jpg",
+
+      "story": [
+        {
+          "type": "image",
+          "url": "https://images.pexels.com/photos/9733197/pexels-photo-9733197.jpeg?w=300",
+          "duration": 6000
+        }
+      ]
+    }
+  ]

@@ -1,46 +1,73 @@
-import React,{ useRef } from 'react'
-import Webcam from 'react-webcam'
-
+"use client";
+import React, { useRef, useState } from "react";
+import Webcam from "react-webcam";
 
 function CameraShot({ onCloseCamera, onCapture }) {
-    const webcamRef = useRef(null)
-    const handleCloseCamera = () => {
-        onCloseCamera(); // Bu fonksiyonu ana bileşende çağırarak kamerayı kapat.
-    };
-    const capture = () => {
-        const imageSrc = webcamRef.current.getScreenshot();
-        onCapture(imageSrc); // Fotoğrafı state içinde saklayın
-    };
+  const webcamRef = useRef(null);
+  const [capturedImage, setCapturedImage] = useState(null); // Çekilen fotoğrafın URL'si için state
+  const handleCloseCamera = () => {
+    onCloseCamera(); // Bu fonksiyonu ana bileşende çağırarak kamerayı kapat.
+  };
+  const capture = () => {
+    const imageSrc = webcamRef.current.getScreenshot();
+    setCapturedImage(imageSrc); // Fotoğrafı state içinde sakla
+  };
 
-    
+  const handleBackToCamera = () => {
+    setCapturedImage(null); // Kameraya geri dön
+  };
+
+  const handleShareToStory = () => {
+    if (capturedImage) {
+      onCapture(capturedImage); // Ana bileşende bu fotoğrafı kullanarak hikayeye ekle
+      handleCloseCamera(); // Kamerayı kapat
+    }
+  };
+
   return (
-    <div style={{ position: 'relative' }}>
-    <Webcam height={600} width={600} ref={webcamRef} />
-    <button 
-                onClick={capture} 
-                style={{ 
-                    position: 'absolute', 
-                    top: '90%', 
-                    left: '50%', 
-                    transform: 'translate(-50%, -50%)',
-                    zIndex: 10, 
-                    padding: '15px', 
-                    cursor: 'pointer', 
-                    backgroundColor: 'rgba(255, 255, 255, 0.7)', 
-                    borderRadius: '50%', 
-                    border: 'none' 
-                }}
-            >
-                Fotoğraf Çek
-            </button>
-    <button onClick={handleCloseCamera}
-       className='absolute top-[10px] right-[10px] p-[5px] cursor-pointer bg-red-300 text-white rounded-full'
-    >
-        X
-    </button>
-</div>
-  )
+    <div style={{ position: "relative" }}>
+      {capturedImage ? (
+        <img src={capturedImage} alt="Captured" style={{ width: "100%" }} />
+      ) : (
+        <Webcam height={600} width={600} ref={webcamRef} />
+      )}
+
+      {!capturedImage && (
+        <button
+          className="absolute bottom-[30px] left-[50%]  transform translate-x-[-50%] -translate-y-[-50%] z-10 p-[15px] cursor-pointer bg-gray-200 rounded-full  border-none"
+          onClick={capture}
+        >
+         
+        </button>
+      )}
+
+      <button
+        onClick={handleCloseCamera}
+        className="absolute top-[10px] right-[10px] px-[5px] cursor-pointer bg-red-500 text-white rounded-full"
+      >
+        x
+      </button>
+
+      {capturedImage && (
+        <>
+          <button
+            onClick={handleBackToCamera}
+            className="absolute bottom-[10px] left-[20px] cursor-pointer text-gray-400 bg-slate-800 p-3 rounded-full"
+           
+          >
+            Back to camera
+          </button>
+          <button
+            onClick={handleShareToStory}
+            className="absolute bottom-[10px] right-[20px] cursor-pointer text-gray-400 bg-slate-800 p-3 rounded-full"
+            
+          >
+           Share to story
+          </button>
+        </>
+      )}
+    </div>
+  );
 }
 
-
-export default CameraShot
+export default CameraShot;
