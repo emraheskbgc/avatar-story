@@ -16,6 +16,7 @@ export default function Story() {
   const [showRight, setShowRight] = useState(true);
   const [selectedAvatar, setSelectedAvatar] = useState(null); // Seçilen avatarı saklayın
   const [showScrollButton, setShowScrollButton] = useState(true); //scroll butonların gösterilip gizleneceğini kontrol eder
+
  
 
 
@@ -95,7 +96,7 @@ useEffect(() => {
 }, [selectedStory, selectedAvatar]);
 
   
-  
+
 
   // Yakalanan fotoğraf varsa, avatar listesine ekleyen etkileşim:
   useEffect(() => {
@@ -173,11 +174,15 @@ useEffect(() => {
       )}
 
       {selectedStory && (
-        <FullScreenStory
-          selectedStory={selectedStory}
-          selectedAvatar={selectedAvatar}
-          onClose={() => setSelectedStory(null)} // Bu fonksiyonu kapatma işlemi için ayarlayabilirsiniz
-        />
+       <div className="story-animation">
+       
+       <FullScreenStory
+       selectedStory={selectedStory}
+       selectedAvatar={selectedAvatar}
+       onClose={() => setSelectedStory(null)} // Bu fonksiyonu kapatma işlemi için ayarlayabilirsiniz
+     />
+
+       </div>
       )}
       {isOpenCamera && (
         <div className="fullScreenStyle">
