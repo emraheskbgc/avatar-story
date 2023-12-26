@@ -58,10 +58,7 @@ export default function Story() {
   }, [selectedStory]);
 
   // Seçilen hikayenin süresi dolduğunda tetiklenen etkileşim:
-// Örnek bir durum nesnesi
 const avatarStatuses = {};
-// ... Diğer kodlarınız ...
-
 useEffect(() => {
   if (selectedStory) {
     // Seçilen hikayenin toplam süresini hesapla:
@@ -69,12 +66,7 @@ useEffect(() => {
       (acc, story) => acc + (story.duration || 5000),
       0
     );
-
-    // ... Diğer kodlarınız ...
-
     const timer = setTimeout(() => {
-      // ... Diğer kodlarınız ...
-
       // Hikaye bittiğinde bir sonraki avatara geçiş yap
       const currentAvatarIndex = avatars.findIndex(avatar => avatar.id === selectedAvatar.id);
       if (currentAvatarIndex < avatars.length - 1) {
@@ -118,7 +110,7 @@ useEffect(() => {
               {
                 type: "image",
                 url: capturedPhoto,
-                duration: 5000, // Örnek süre
+                duration: 5000, 
               },
             ],
           };
