@@ -16,6 +16,8 @@ export default function Story() {
   const [showRight, setShowRight] = useState(true);
   const [selectedAvatar, setSelectedAvatar] = useState(null); // Seçilen avatarı saklayın
   const [showScrollButton, setShowScrollButton] = useState(true); //scroll butonların gösterilip gizleneceğini kontrol eder
+ 
+
 
   // Kamera modu için state değişkenleri:
   const [isOpenCamera, setIsOpenCamera] = useState(false);
@@ -56,21 +58,52 @@ export default function Story() {
   }, [selectedStory]);
 
   // Seçilen hikayenin süresi dolduğunda tetiklenen etkileşim:
-  useEffect(() => {
-    if (selectedStory) {
-      // Seçilen hikayenin toplam süresini hesapla:
-      const totalDuration = selectedStory.reduce(
-        (acc, story) => acc + (story.duration || 5000),
-        0
-      ); // Varsayılan süre: 5000 ms
-      // Seçilen hikayenin toplam süresi kadar beklet:
-      const timer = setTimeout(() => {
-        setSelectedStory(null); // Hikaye süresi dolduğunda sıfırla
-      }, totalDuration);
+// Örnek bir durum nesnesi
+const avatarStatuses = {};
+// ... Diğer kodlarınız ...
 
-      return () => clearTimeout(timer); // Component unmount olduğunda timer'ı temizle
-    }
-  }, [selectedStory]);
+useEffect(() => {
+  if (selectedStory) {
+    // Seçilen hikayenin toplam süresini hesapla:
+    const totalDuration = selectedStory.reduce(
+      (acc, story) => acc + (story.duration || 5000),
+      0
+    );
+
+    // ... Diğer kodlarınız ...
+
+    const timer = setTimeout(() => {
+      // ... Diğer kodlarınız ...
+
+      // Hikaye bittiğinde bir sonraki avatara geçiş yap
+      const currentAvatarIndex = avatars.findIndex(avatar => avatar.id === selectedAvatar.id);
+      if (currentAvatarIndex < avatars.length - 1) {
+        const nextAvatar = avatars[currentAvatarIndex + 1];
+        setSelectedStory(nextAvatar.story);  // Hikayeyi başlat
+        setSelectedAvatar(nextAvatar);      // Avatarı güncelle
+        setShowScrollButton(false);
+      } else {
+        // Eğer son avatara geldiysek, seçili hikayeyi sıfırla
+        setSelectedStory(null);
+
+        // avatarStatuses[selectedAvatar.id] kontrolü
+        if (avatarStatuses[selectedAvatar.id]) {
+          avatarStatuses[selectedAvatar.id].currentIndex = 0;
+        } else {
+          // Eğer ilgili avatar için bir durum nesnesi yoksa oluştur
+          avatarStatuses[selectedAvatar.id] = {
+            currentIndex: 0
+          };
+        }
+      }
+    }, totalDuration);
+
+    return () => clearTimeout(timer);
+  }
+}, [selectedStory, selectedAvatar]);
+
+  
+  
 
   // Yakalanan fotoğraf varsa, avatar listesine ekleyen etkileşim:
   useEffect(() => {
