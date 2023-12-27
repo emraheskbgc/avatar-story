@@ -41,7 +41,7 @@ function CameraShot({ onCloseCamera, onCapture, onShareToStory }) {
   
 const videoConstraints = {
   facingMode:"user",
-  height: { min: 640, ideal: 1280, max: 1920 },
+  height: { min: 600, ideal: 1200, max: 1820 },
   width: { min: 480, ideal: 720, max: 1080 },
 
   
