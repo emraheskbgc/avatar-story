@@ -47,7 +47,7 @@ const videoConstraints = {
   return (
     <div className="relative">
       {capturedImage ? (
-        <img src={capturedImage} alt="Captured" className="w-[100%]"/>
+        <img src={capturedImage} alt="Captured" className="w-[100%] h-[100%] "/>
       ) : (
         <div className="camera-container">
         <Webcam className="camera-style" ref={webcamRef} videoConstraints={videoConstraints} mirrored={true}  />
