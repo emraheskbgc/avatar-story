@@ -17,7 +17,12 @@ export default function Story() {
   const [selectedAvatar, setSelectedAvatar] = useState(null); // Seçilen avatarı saklayın
   const [showScrollButton, setShowScrollButton] = useState(true); //scroll butonların gösterilip gizleneceğini kontrol eder
 
- 
+
+  const [isAnimationActive, setIsAnimationActive] = useState(false);
+  const [selectedAvatarId, setSelectedAvatarId] = useState(null);
+  
+
+
 
 
   // Kamera modu için state değişkenleri:
@@ -28,7 +33,7 @@ export default function Story() {
   const handleOpenCamera = () => {
     setIsOpenCamera(true);
   };
-  console.log(isOpenCamera);
+
 
   // Sayfa kaydırıldığında ne olacağını kontrol eden fonksiyon:
   const onScroll = () => {
@@ -48,9 +53,12 @@ export default function Story() {
   };
   const [avatars, setAvatars] = useState(avatarDatas);
   const handleAvatarClick = (avatar) => {
-    setSelectedStory(avatar.story); // Seçilen avatarın hikayesini set edin.
-    setSelectedAvatar(avatar); // Seçilen avatarı set edin.
+    setSelectedStory(avatar.story); 
+    setSelectedAvatar(avatar);
+    setSelectedAvatarId(avatar.id);   
     setShowScrollButton(false);
+   
+    
   };
   useEffect(() => {
     if (!selectedStory) {
@@ -61,29 +69,25 @@ export default function Story() {
   // Seçilen hikayenin süresi dolduğunda tetiklenen etkileşim:
 const avatarStatuses = {};
 useEffect(() => {
-  if (selectedStory) {
-    // Seçilen hikayenin toplam süresini hesapla:
+  if (selectedStory && selectedAvatarId) {
     const totalDuration = selectedStory.reduce(
       (acc, story) => acc + (story.duration || 5000),
       0
     );
+
     const timer = setTimeout(() => {
-      // Hikaye bittiğinde bir sonraki avatara geçiş yap
       const currentAvatarIndex = avatars.findIndex(avatar => avatar.id === selectedAvatar.id);
       if (currentAvatarIndex < avatars.length - 1) {
         const nextAvatar = avatars[currentAvatarIndex + 1];
-        setSelectedStory(nextAvatar.story);  // Hikayeyi başlat
-        setSelectedAvatar(nextAvatar);      // Avatarı güncelle
+        setSelectedStory(nextAvatar.story);
+        setSelectedAvatar(nextAvatar);
+        setIsAnimationActive(true);  // Animasyonu başlat
         setShowScrollButton(false);
       } else {
-        // Eğer son avatara geldiysek, seçili hikayeyi sıfırla
         setSelectedStory(null);
-
-        // avatarStatuses[selectedAvatar.id] kontrolü
         if (avatarStatuses[selectedAvatar.id]) {
           avatarStatuses[selectedAvatar.id].currentIndex = 0;
         } else {
-          // Eğer ilgili avatar için bir durum nesnesi yoksa oluştur
           avatarStatuses[selectedAvatar.id] = {
             currentIndex: 0
           };
@@ -91,9 +95,13 @@ useEffect(() => {
       }
     }, totalDuration);
 
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(timer);
+       setIsAnimationActive(false);  // Bu satırı kaldırın veya yorum satırına alın.
+    }
   }
 }, [selectedStory, selectedAvatar]);
+
 
   
 
@@ -124,7 +132,7 @@ useEffect(() => {
       setCapturedPhoto(null); // Fotoğrafı sıfırlayın
     }
   }, [capturedPhoto]);
-
+console.log(isAnimationActive);
   return (
     <div className="relative md:w-max w-full md:h-auto h-screen   overflow-hidden border">
       <div
@@ -174,12 +182,13 @@ useEffect(() => {
       )}
 
       {selectedStory && (
-       <div className="story-animation">
+       <div className={`story-animation ${isAnimationActive ? 'story-slide-in' : ''} `}>
        
        <FullScreenStory
        selectedStory={selectedStory}
        selectedAvatar={selectedAvatar}
        onClose={() => setSelectedStory(null)} // Bu fonksiyonu kapatma işlemi için ayarlayabilirsiniz
+       
      />
 
        </div>

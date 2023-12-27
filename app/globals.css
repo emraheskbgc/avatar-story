@@ -70,12 +70,16 @@
   }
 }
 
-@keyframes slideAnimation {
-  0% {
-    transform: translateX(0); /* Başlangıçta hiçbir hareket yok */
-  }
-  100% {
-    transform: translateX(-100%); /* Yatay olarak -100% kaydırma (soldan sağa) */
-  }
+.story-slide-in {
+  animation-name: slideIn;
+  animation-duration: 1.0s;
 }
 
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}

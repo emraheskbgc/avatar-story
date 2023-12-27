@@ -64,11 +64,11 @@ function CameraShot({ onCloseCamera, onCapture, onShareToStory }) {
     }
   }, []);
   return (
-    <div className="relative border border-white">
+    <div className="relative">
       {capturedImage ? (
         <img src={capturedImage} alt="Captured"  style={{ maxWidth: '100%', maxHeight: '100%' }}   />
       ) : (
-        <div className=" border border-yellow-500">
+        <div >
         <Webcam  ref={webcamRef} videoConstraints={videoConstraints} mirrored={true}  />
       </div>
       )}
