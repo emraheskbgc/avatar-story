@@ -59,7 +59,7 @@ function CameraShot({ onCloseCamera, onCapture, onShareToStory }) {
       setVideoConstraints({
         facingMode: "user",
         height: 600, // Büyük ekranlar için önceki değerler
-        width: 480
+        width: 380
       });
     }
   }, []);
@@ -68,7 +68,7 @@ function CameraShot({ onCloseCamera, onCapture, onShareToStory }) {
       {capturedImage ? (
         <img src={capturedImage} alt="Captured"  style={{ maxWidth: '100%', maxHeight: '100%' }}   />
       ) : (
-        <div className=" border border-blue-500">
+        <div className=" border border-yellow-500">
         <Webcam  ref={webcamRef} videoConstraints={videoConstraints} mirrored={true}  />
       </div>
       )}
