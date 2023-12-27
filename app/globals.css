@@ -26,9 +26,6 @@
 }
 
 .storyContainerStyle{
-
- 
- border-radius: 5px;
  width: 100%;
  height: 100%;
  display: flex;
@@ -38,10 +35,13 @@
 
 }
 .storyContainerStyle img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Resmin boyutunu koruyarak tamamen div içine sığmasını sağlar */
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  object-position: center; 
+ 
 }
+
 @media (min-width: 768px) {
   .storyContainerStyle {
     max-width: 300px; /* Masaüstü için belirttiğiniz maksimum genişlik */
