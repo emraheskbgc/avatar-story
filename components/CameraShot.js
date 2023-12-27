@@ -10,29 +10,23 @@ function CameraShot({ onCloseCamera, onCapture, onShareToStory }) {
   };
   const capture = () => {
     const imageSrc = webcamRef.current.getScreenshot();
-  
-    // Kare fotoğrafı almak için bir canvas oluştur
-    const canvasWidth = 720; // Önerilen genişlik
-    const canvasHeight = 1280; // Önerilen yükseklik
+    
+    // Webcam'in boyutlarına uygun bir canvas oluştur
     const canvas = document.createElement('canvas');
-    canvas.width = canvasWidth;
-    canvas.height = canvasHeight;
-  
+    canvas.width = webcamRef.current.video.clientWidth;  // Webcam'in genişliği
+    canvas.height = webcamRef.current.video.clientHeight;  // Webcam'in yüksekliği
+    
     const ctx = canvas.getContext('2d');
     const img = new Image();
     img.src = imageSrc;
-  
+    
     img.onload = () => {
-      // Kare fotoğrafı canvas'a çiz
-      const offsetX = (canvas.width - img.width) / 2;
-      const offsetY = (canvas.height - img.height) / 2;
-      ctx.drawImage(img, offsetX, offsetY, img.width, img.height); // Boyutları ekleyin
-  
+      ctx.drawImage(img, 0, 0, canvas.width, canvas.height); // Boyutları belirtin
+      
       // Canvas'dan resmi çek ve setCapturedImage ile sakla
       setCapturedImage(canvas.toDataURL('image/jpeg'));
     };
   };
-  
   
   const handleBackToCamera = () => {
     setCapturedImage(null); // Kameraya geri dön
@@ -53,9 +47,9 @@ const videoConstraints = {
   
 }
   return (
-    <div className="relative">
+    <div className="relative border border-white">
       {capturedImage ? (
-        <img src={capturedImage} alt="Captured" className="w-[100%] h-[100%] "/>
+        <img src={capturedImage} alt="Captured"  style={{ maxWidth: '100%', maxHeight: '100%' }}   />
       ) : (
         <div className="camera-container">
         <Webcam className="camera-style" ref={webcamRef} videoConstraints={videoConstraints} mirrored={true}  />

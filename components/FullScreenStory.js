@@ -8,8 +8,7 @@ function FullScreenStory({ selectedStory, selectedAvatar, onClose }) {
     width: "auto",
     maxWidth: "100%",
     maxHeight: "100%",
-    margin: "auto",
-    padding: "10px", // Kapatma düğmesini konumlandırmak için biraz dolgu ekleyin
+  
   };
   return (
     <div className="fullScreenStyle">

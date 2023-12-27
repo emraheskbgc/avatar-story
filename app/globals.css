@@ -34,13 +34,7 @@
  overflow: hidden;
 
 }
-.storyContainerStyle img {
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
-  object-position: center; 
- 
-}
+
 
 @media (min-width: 768px) {
   .storyContainerStyle {
@@ -52,15 +46,10 @@
 }
 .camera-container {
   position: relative;
-  width: 300px; /* Genişlik 300px */
+  width: 350px; /* Genişlik 300px */
   height: 600px; /* Yükseklik 600px */
 
 
-}
-.camera-style {
-  position: absolute;
-  width: 300px !important; /* Genişlik 300px */
-  height: 600px !important; /* Yükseklik 600px */
 }
 
 .fullScreenStyle{
@@ -98,3 +87,9 @@
   }
 }
 
+.capImg{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
