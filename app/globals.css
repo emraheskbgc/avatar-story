@@ -44,15 +44,15 @@
 }
 .camera-container {
   position: relative;
-  width: 600px; /* Genişlik 300px */
+  width: 300px; /* Genişlik 300px */
   height: 600px; /* Yükseklik 600px */
 
 
 }
 .camera-style {
   position: absolute;
-  width: 100% !important; /* Genişlik 300px */
-  height: 100% !important; /* Yükseklik 600px */
+  width: 300px !important; /* Genişlik 300px */
+  height: 600px !important; /* Yükseklik 600px */
 }
 
 .fullScreenStyle{

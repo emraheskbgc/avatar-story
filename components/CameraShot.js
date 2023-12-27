@@ -42,6 +42,7 @@ function CameraShot({ onCloseCamera, onCapture, onShareToStory }) {
   
 const videoConstraints = {
   facingMode:"environment"
+  
 }
   return (
     <div className="relative">
@@ -49,7 +50,7 @@ const videoConstraints = {
         <img src={capturedImage} alt="Captured" className="w-[100%]"/>
       ) : (
         <div className="camera-container">
-        <Webcam className="camera-style" ref={webcamRef} videoConstraints={videoConstraints} />
+        <Webcam className="camera-style" ref={webcamRef} videoConstraints={videoConstraints} mirrored={true}  />
       </div>
       )}
 
