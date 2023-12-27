@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import Webcam from "react-webcam";
 
 function CameraShot({ onCloseCamera, onCapture, onShareToStory }) {
@@ -39,21 +39,38 @@ function CameraShot({ onCloseCamera, onCapture, onShareToStory }) {
     }
   };
   
-const videoConstraints = {
-  facingMode:"user",
-  height: { min: 600, ideal: 1200, max: 1820 },
-  width: { min: 480, ideal: 720, max: 1080 },
+  const [videoConstraints, setVideoConstraints] = useState({
+    facingMode: "user",
+    height: 600,
+    width: 480
+  });
+  useEffect(() => {
+    // Ekran genişliğini alın
+    const screenWidth = window.innerWidth;
 
-  
-}
+    // Ekran genişliğine göre video boyutlarını ayarlayın
+    if (screenWidth <= 768) { // Örnek: 768px ve altındaki ekranlar için
+      setVideoConstraints({
+        facingMode: "user",
+        height: 600, // Mobil cihazlar için daha küçük bir yükseklik
+        width: 400  // Mobil cihazlar için daha küçük bir genişlik
+      });
+    } else {
+      setVideoConstraints({
+        facingMode: "user",
+        height: 600, // Büyük ekranlar için önceki değerler
+        width: 480
+      });
+    }
+  }, []);
   return (
     <div className="relative border border-white">
       {capturedImage ? (
         <img src={capturedImage} alt="Captured"  style={{ maxWidth: '100%', maxHeight: '100%' }}   />
       ) : (
-        <div className="camera-container">
+      
         <Webcam  ref={webcamRef} videoConstraints={videoConstraints} mirrored={true}  />
-      </div>
+      
       )}
 
       {!capturedImage && (

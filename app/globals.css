@@ -49,11 +49,6 @@
 
 
 }
-.camera-style {
-  position: absolute;
-  width: 350px !important; /* Genişlik 300px */
-  height: 600px !important; /* Yükseklik 600px */
-}
 
 .fullScreenStyle{
  position: fixed; 
