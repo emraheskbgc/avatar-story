@@ -47,7 +47,7 @@
 .camera-container {
   position: relative;
   width: 350px; /* Genişlik 300px */
-  height: 600px; /* Yükseklik 600px */
+  height: 630px; /* Yükseklik 600px */
 
 
 }
@@ -71,7 +71,7 @@
 }
 
 .story-animation {
-  animation: fadeOutIn 0.6s;  /* Animasyon süresi 2 saniye */
+  animation: fadeOutIn 0.8s;  /* Animasyon süresi 2 saniye */
 }
 @keyframes fadeOutIn {
   0% {

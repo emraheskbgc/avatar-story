@@ -52,7 +52,7 @@ const videoConstraints = {
         <img src={capturedImage} alt="Captured"  style={{ maxWidth: '100%', maxHeight: '100%' }}   />
       ) : (
         <div className="camera-container">
-        <Webcam className="camera-style" ref={webcamRef} videoConstraints={videoConstraints} mirrored={true}  />
+        <Webcam  ref={webcamRef} videoConstraints={videoConstraints} mirrored={true}  />
       </div>
       )}
 
