@@ -10,26 +10,45 @@ function CameraShot({ onCloseCamera, onCapture, onShareToStory }) {
   };
   const capture = () => {
     const imageSrc = webcamRef.current.getScreenshot();
-    setCapturedImage(imageSrc); // Fotoğrafı state içinde sakla
-  };
 
+    // Kare fotoğrafı almak için bir canvas oluştur
+    const canvas = document.createElement('canvas');
+    canvas.width = canvas.height = Math.min(window.innerWidth, window.innerHeight); // Ekranın en küçük boyutunu al (kare olacak şekilde)
+
+    const ctx = canvas.getContext('2d');
+    const img = new Image();
+    img.src = imageSrc;
+
+    img.onload = () => {
+      // Kare fotoğrafı canvas'a çiz
+      const offsetX = (canvas.width - img.width) / 2;
+      const offsetY = (canvas.height - img.height) / 2;
+      ctx.drawImage(img, offsetX, offsetY);
+
+      // Canvas'dan resmi çek ve setCapturedImage ile sakla
+      setCapturedImage(canvas.toDataURL('image/jpeg'));
+    };
+  };
   const handleBackToCamera = () => {
     setCapturedImage(null); // Kameraya geri dön
   };
 
   const handleShareToStory = () => {
     if (capturedImage) {
-      onCapture(capturedImage); // Ana bileşende bu fotoğrafı kullanarak hikayeye ekle
+      onCapture(capturedImage); // Direkt olarak çekilen fotoğrafı ana bileşende kullanarak hikayeye ekle
       handleCloseCamera(); // Kamerayı kapat
     }
   };
+  
 
   return (
     <div className="relative">
       {capturedImage ? (
         <img src={capturedImage} alt="Captured" className="w-[100%]"/>
       ) : (
-        <Webcam height={500} width={500} ref={webcamRef} />
+        <div className="camera-container">
+        <Webcam className="camera-style" ref={webcamRef} />
+      </div>
       )}
 
       {!capturedImage && (
