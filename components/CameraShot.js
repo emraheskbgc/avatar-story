@@ -41,7 +41,7 @@ function CameraShot({ onCloseCamera, onCapture, onShareToStory }) {
   };
   
 const videoConstraints = {
-  facingMode:"environment"
+  facingMode:"user"
   
 }
   return (
