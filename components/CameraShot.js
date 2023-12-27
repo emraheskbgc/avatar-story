@@ -10,25 +10,30 @@ function CameraShot({ onCloseCamera, onCapture, onShareToStory }) {
   };
   const capture = () => {
     const imageSrc = webcamRef.current.getScreenshot();
-
+  
     // Kare fotoğrafı almak için bir canvas oluştur
+    const canvasWidth = 720; // Önerilen genişlik
+    const canvasHeight = 1280; // Önerilen yükseklik
     const canvas = document.createElement('canvas');
-    canvas.width = canvas.height = Math.min(window.innerWidth, window.innerHeight); // Ekranın en küçük boyutunu al (kare olacak şekilde)
-
+    canvas.width = canvasWidth;
+    canvas.height = canvasHeight;
+  
     const ctx = canvas.getContext('2d');
     const img = new Image();
     img.src = imageSrc;
-
+  
     img.onload = () => {
       // Kare fotoğrafı canvas'a çiz
       const offsetX = (canvas.width - img.width) / 2;
       const offsetY = (canvas.height - img.height) / 2;
-      ctx.drawImage(img, offsetX, offsetY);
-
+      ctx.drawImage(img, offsetX, offsetY, img.width, img.height); // Boyutları ekleyin
+  
       // Canvas'dan resmi çek ve setCapturedImage ile sakla
       setCapturedImage(canvas.toDataURL('image/jpeg'));
     };
   };
+  
+  
   const handleBackToCamera = () => {
     setCapturedImage(null); // Kameraya geri dön
   };
@@ -41,7 +46,10 @@ function CameraShot({ onCloseCamera, onCapture, onShareToStory }) {
   };
   
 const videoConstraints = {
-  facingMode:"user"
+  facingMode:"user",
+  height: { min: 640, ideal: 1280, max: 1920 },
+  width: { min: 480, ideal: 720, max: 1080 },
+
   
 }
   return (
