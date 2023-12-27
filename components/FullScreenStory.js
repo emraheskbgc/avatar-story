@@ -15,7 +15,7 @@ function FullScreenStory({ selectedStory, selectedAvatar, onClose }) {
     <div className="fullScreenStyle">
       {/* Kapatma düğmesi */}
       <div
-        className="absolute text-white top-9 right-8 cursor-pointer z-[1000]"
+        className="absolute text-white top-9 mt-8 right-8 cursor-pointer z-[1000]"
         onClick={onClose}
       >
         X
@@ -23,11 +23,11 @@ function FullScreenStory({ selectedStory, selectedAvatar, onClose }) {
 
       {/* Avatar bilgisi */}
       {selectedAvatar && (
-        <div className="flex justify-center items-center absolute top-8 left-8 z-[1000]">
+        <div className="flex justify-center items-center absolute mt-8 top-8 left-8 z-[1000]">
           <img
             src={selectedAvatar.avatar}
             alt={selectedAvatar.name}
-            className="w-[40px] h-[40px] rounded-full mr-3"
+            className="w-[40px] h-[40px] rounded-full mr-3 "
           />
           <p className="text-white font-[16px]">{selectedAvatar.name}</p>
         </div>
