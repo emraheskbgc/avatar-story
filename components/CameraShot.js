@@ -52,8 +52,8 @@ function CameraShot({ onCloseCamera, onCapture, onShareToStory }) {
     if (screenWidth <= 768) { // Örnek: 768px ve altındaki ekranlar için
       setVideoConstraints({
         facingMode: "user",
-        height: 600, // Mobil cihazlar için daha küçük bir yükseklik
-        width: 350  // Mobil cihazlar için daha küçük bir genişlik
+        height: 350, // Mobil cihazlar için daha küçük bir yükseklik
+        width: 600  // Mobil cihazlar için daha küçük bir genişlik
       });
     } else {
       setVideoConstraints({
@@ -68,7 +68,7 @@ function CameraShot({ onCloseCamera, onCapture, onShareToStory }) {
       {capturedImage ? (
         <img src={capturedImage} alt="Captured"  style={{ maxWidth: '100%', maxHeight: '100%' }}   />
       ) : (
-        <div className="camera-container border border-red-500">
+        <div className=" border border-blue-500">
         <Webcam  ref={webcamRef} videoConstraints={videoConstraints} mirrored={true}  />
       </div>
       )}
