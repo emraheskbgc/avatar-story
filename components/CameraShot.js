@@ -93,17 +93,17 @@ function CameraShot({ onCloseCamera, onCapture, onShareToStory }) {
         <>
           <button
             onClick={handleBackToCamera}
-            className="absolute bottom-[10px] left-[20px] cursor-pointer text-gray-400 bg-slate-800 p-3 rounded-full"
+            className="absolute bottom-[10px] left-[20px] cursor-pointer text-gray-400 bg-slate-800 p-2 rounded-full "
            
           >
-            Back to camera
+            Back
           </button>
           <button
             onClick={handleShareToStory}
-            className="absolute bottom-[10px] right-[20px] cursor-pointer text-gray-400 bg-slate-800 p-3 rounded-full"
+            className="absolute bottom-[10px] right-[20px] cursor-pointer text-gray-400 bg-slate-800 p-2 rounded-full"
             
           >
-           Share to story
+           Share
           </button>
         </>
       )}
