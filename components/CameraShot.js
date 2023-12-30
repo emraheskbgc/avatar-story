@@ -48,11 +48,11 @@ function CameraShot({ onCloseCamera, onCapture, onShareToStory }) {
     // Ekran genişliğini alın
     const screenWidth = window.innerWidth;
 
-    // Ekran genişliğine göre video boyutlarını ayarlayın
+    // Ekran genişliğine göre resim boyutlarını ayarlayın
     if (screenWidth <= 768) { // Örnek: 768px ve altındaki ekranlar için
       setVideoConstraints({
         facingMode: "user",
-        height: 350, // Mobil cihazlar için daha küçük bir yükseklik
+        height: 300, // Mobil cihazlar için daha küçük bir yükseklik
         width: 600  // Mobil cihazlar için daha küçük bir genişlik
       });
     } else {
