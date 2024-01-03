@@ -134,11 +134,11 @@ useEffect(() => {
   }, [capturedPhoto]);
 console.log(isAnimationActive);
   return (
-    <div className="relative md:w-max w-full md:h-auto h-screen   overflow-hidden border">
+    <div className="relative md:w-full w-full md:h-auto h-screen   overflow-hidden border">
       <div
         onScroll={onScroll}
         ref={storiesRef}
-        className="flex space-x-2  overflow-x-scroll max-w-xl bg-white border-gray-200 p-4 scroll-smooth scrollbar-hide"
+        className="flex space-x-2  overflow-x-scroll bg-white border-gray-200 p-4 scroll-smooth scrollbar-hide"
       >
         <div onClick={() => handleAvatarClick(avatars[0])}>
           <div className="relative bg-gradient-to-tr from-yellow-500 to-red-600 p-[1.5px] rounded-full">
@@ -188,6 +188,9 @@ console.log(isAnimationActive);
        selectedStory={selectedStory}
        selectedAvatar={selectedAvatar}
        onClose={() => setSelectedStory(null)} // Bu fonksiyonu kapatma işlemi için ayarlayabilirsiniz
+       avatars={avatars}
+       setSelectedStory={setSelectedStory}
+       setSelectedAvatar={setSelectedAvatar}
        
      />
 

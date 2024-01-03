@@ -188,7 +188,46 @@
     },
     {
       "id": 13,
-      "name": "Avatar 12",
+      "name": "Avatar 13",
+      "avatar": "https://reqres.in/img/faces/2-image.jpg",
+
+      "story": [
+        {
+          "type": "image",
+          "url": "https://images.pexels.com/photos/9733197/pexels-photo-9733197.jpeg?w=300",
+          "duration": 6000
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "name": "Avatar 14",
+      "avatar": "https://reqres.in/img/faces/2-image.jpg",
+
+      "story": [
+        {
+          "type": "image",
+          "url": "https://images.pexels.com/photos/9733197/pexels-photo-9733197.jpeg?w=300",
+          "duration": 6000
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "name": "Avatar 15",
+      "avatar": "https://reqres.in/img/faces/2-image.jpg",
+
+      "story": [
+        {
+          "type": "image",
+          "url": "https://images.pexels.com/photos/9733197/pexels-photo-9733197.jpeg?w=300",
+          "duration": 6000
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "name": "Avatar 16",
       "avatar": "https://reqres.in/img/faces/2-image.jpg",
 
       "story": [
