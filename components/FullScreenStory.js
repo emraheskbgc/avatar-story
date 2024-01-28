@@ -108,7 +108,7 @@ function FullScreenStory({ selectedStory, selectedAvatar, onClose, setSelectedSt
                       <img
                         src={storyItem.url}
                         alt={`story-${index}`}
-                        className='w-[100%] h-auto flex justify-center items-center object-cover md:rounded-xl'
+                        className='w-[100%] h-auto  md:rounded-xl'
                         
                       />
                     )}
