@@ -41,7 +41,7 @@ function CameraShot({ onCloseCamera, onCapture, onShareToStory }) {
   
   const [videoConstraints, setVideoConstraints] = useState({
     facingMode: "user",
-    height: 600,
+    height: 932,
     width: 480
   });
   useEffect(() => {
@@ -52,7 +52,7 @@ function CameraShot({ onCloseCamera, onCapture, onShareToStory }) {
     if (screenWidth <= 768) { // Örnek: 768px ve altındaki ekranlar için
       setVideoConstraints({
         facingMode: "user",
-        height: 300, // Mobil cihazlar için daha küçük bir yükseklik
+        height: 2500, // Mobil cihazlar için daha küçük bir yükseklik
         width: 600  // Mobil cihazlar için daha küçük bir genişlik
       });
     } else {
