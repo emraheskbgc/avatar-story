@@ -3,12 +3,10 @@ import React, { useState, useEffect } from 'react';
 function FullScreenStory({ selectedStory, selectedAvatar, onClose, setSelectedStory, setSelectedAvatar, avatarDatas }) {
   const [currentStoryIndex, setCurrentStoryIndex] = useState(0);
   const [progressBarWidth, setProgressBarWidth] = useState(0);
-  const [autoNextStoryTimer, setAutoNextStoryTimer] = useState(null);
 
   useEffect(() => {
     setCurrentStoryIndex(0);
     setProgressBarWidth(0);
-    setAutoNextStoryTimer(null);
   }, [selectedAvatar]);
 
   const handleXButtonClick = (e) => {
@@ -52,58 +50,10 @@ function FullScreenStory({ selectedStory, selectedAvatar, onClose, setSelectedSt
       setProgressBarWidth(0);
     }
   };
-  
-  const handleContainerClick = (e) => {
-    const { clientX, target } = e;
-    const { offsetWidth } = target;
 
-    if (clientX > offsetWidth / 2) {
-      handleNextStory();
-    } else {
-      handlePrevStory();
-    }
-
-    resetAutoNextStoryTimer(); // Tıklama olduğunda otomatik geçiş zamanlayıcısını sıfırla ve başlat
+  const handleContainerClick = () => {
+    handleNextStory();
   };
-
-  // Otomatik geçiş için timer'ı başlat
-  const startAutoNextStoryTimer = () => {
-    setAutoNextStoryTimer(
-      setTimeout(() => {
-        handleNextStory();
-        resetAutoNextStoryTimer(); // Otomatik geçiş gerçekleştikten sonra timer'ı sıfırla ve başlat
-      }, 3000) // 3 saniye sonra otomatik geçiş
-    );
-  };
-
-  // Otomatik geçiş için timer'ı sıfırla ve başlat
-  const resetAutoNextStoryTimer = () => {
-    if (autoNextStoryTimer) {
-      clearTimeout(autoNextStoryTimer);
-    }
-    startAutoNextStoryTimer();
-  };
-
-  useEffect(() => {
-    setProgressBarWidth(0);
-
-    const totalDuration = selectedStory.reduce((acc, story) => acc + (story.duration || 5000), 0);
-    const interval = setInterval(() => {
-      setProgressBarWidth((prevWidth) => (prevWidth + 10 / totalDuration) * 100);
-    }, 10);
-
-    startAutoNextStoryTimer(); // İlk render'da otomatik geçiş zamanlayıcısını başlat
-
-    const timer = setTimeout(() => {
-      handleNextStory();
-    }, totalDuration);
-
-    return () => {
-      clearInterval(interval);
-      clearTimeout(timer);
-      clearTimeout(autoNextStoryTimer); // Komponent kaldırıldığında otomatik geçiş zamanlayıcısını temizle
-    };
-  }, [selectedStory, handleNextStory]);
 
   return (
     <div className="fullScreenStyle" onClick={handleContainerClick}>
@@ -129,7 +79,7 @@ function FullScreenStory({ selectedStory, selectedAvatar, onClose, setSelectedSt
                       <img
                         src={storyItem.url}
                         alt={`story-${index}`}
-                        className='w-[100%] h-auto md:rounded-xl'
+                        className={`w-[100%] h-auto md:rounded-xl story-slide-in `}
                       />
                     )}
 
