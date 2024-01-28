@@ -52,7 +52,7 @@ function CameraShot({ onCloseCamera, onCapture, onShareToStory }) {
     if (screenWidth <= 768) { // Örnek: 768px ve altındaki ekranlar için
       setVideoConstraints({
         facingMode: "user",
-        height: 2500, // Mobil cihazlar için daha küçük bir yükseklik
+        height: 300, // Mobil cihazlar için daha küçük bir yükseklik
         width: 600  // Mobil cihazlar için daha küçük bir genişlik
       });
     } else {
