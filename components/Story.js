@@ -21,7 +21,7 @@ export default function Story() {
   const [isAnimationActive, setIsAnimationActive] = useState(false);
   const [selectedAvatarId, setSelectedAvatarId] = useState(null);
   
-
+  const [avatars, setAvatars] = useState(avatarDatas);
 
 
 
@@ -51,7 +51,7 @@ export default function Story() {
       setShowRight(true);
     }
   };
-  const [avatars, setAvatars] = useState(avatarDatas);
+  
   const handleAvatarClick = (avatar) => {
     setSelectedStory(avatar.story); 
     setSelectedAvatar(avatar);
@@ -132,7 +132,7 @@ useEffect(() => {
       setCapturedPhoto(null); // Fotoğrafı sıfırlayın
     }
   }, [capturedPhoto]);
-console.log(isAnimationActive);
+
   return (
     <div className="relative md:w-full w-full md:h-auto h-screen   overflow-hidden border">
       <div
@@ -191,6 +191,7 @@ console.log(isAnimationActive);
        avatars={avatars}
        setSelectedStory={setSelectedStory}
        setSelectedAvatar={setSelectedAvatar}
+       avatarDatas={avatarDatas}
        
      />
 
