@@ -3,10 +3,12 @@ import React, { useState, useEffect } from 'react';
 function FullScreenStory({ selectedStory, selectedAvatar, onClose, setSelectedStory, setSelectedAvatar, avatarDatas }) {
   const [currentStoryIndex, setCurrentStoryIndex] = useState(0);
   const [progressBarWidth, setProgressBarWidth] = useState(0);
+  const [autoNextStoryTimer, setAutoNextStoryTimer] = useState(null);
 
   useEffect(() => {
     setCurrentStoryIndex(0);
     setProgressBarWidth(0);
+    setAutoNextStoryTimer(null);
   }, [selectedAvatar]);
 
   const handleXButtonClick = (e) => {
@@ -36,20 +38,18 @@ function FullScreenStory({ selectedStory, selectedAvatar, onClose, setSelectedSt
     if (currentStoryIndex === 0) {
       const currentAvatarIndex = avatarDatas.findIndex((avatar) => avatar.id === selectedAvatar.id);
       const prevAvatar = avatarDatas[currentAvatarIndex - 1];
-  
+
       if (prevAvatar) {
-        // Bir önceki avatarın hikayelerini göster
         setSelectedStory(prevAvatar.story);
         setSelectedAvatar(prevAvatar);
-        setCurrentStoryIndex(prevAvatar.story.length - 1); // Son hikayeye geç
-        setProgressBarWidth(0); // Progress bar'ını sıfırla
+        setCurrentStoryIndex(prevAvatar.story.length - 1);
+        setProgressBarWidth(0);
       } else {
-        // Eğer bir önceki avatar yoksa kapat
         onClose();
       }
     } else {
       setCurrentStoryIndex((prevIndex) => Math.max(0, prevIndex - 1));
-      setProgressBarWidth(0); // Bir önceki hikayeye geçildiğinde progress bar'ını sıfırla
+      setProgressBarWidth(0);
     }
   };
   
@@ -57,13 +57,31 @@ function FullScreenStory({ selectedStory, selectedAvatar, onClose, setSelectedSt
     const { clientX, target } = e;
     const { offsetWidth } = target;
 
-    // Ekranın sağ yarısına tıklandıysa bir sonraki hikayeye geç
     if (clientX > offsetWidth / 2) {
       handleNextStory();
     } else {
-      // Ekranın sol yarısına tıklandıysa bir önceki hikayeye geç
       handlePrevStory();
     }
+
+    resetAutoNextStoryTimer(); // Tıklama olduğunda otomatik geçiş zamanlayıcısını sıfırla ve başlat
+  };
+
+  // Otomatik geçiş için timer'ı başlat
+  const startAutoNextStoryTimer = () => {
+    setAutoNextStoryTimer(
+      setTimeout(() => {
+        handleNextStory();
+        resetAutoNextStoryTimer(); // Otomatik geçiş gerçekleştikten sonra timer'ı sıfırla ve başlat
+      }, 3000) // 3 saniye sonra otomatik geçiş
+    );
+  };
+
+  // Otomatik geçiş için timer'ı sıfırla ve başlat
+  const resetAutoNextStoryTimer = () => {
+    if (autoNextStoryTimer) {
+      clearTimeout(autoNextStoryTimer);
+    }
+    startAutoNextStoryTimer();
   };
 
   useEffect(() => {
@@ -74,6 +92,8 @@ function FullScreenStory({ selectedStory, selectedAvatar, onClose, setSelectedSt
       setProgressBarWidth((prevWidth) => (prevWidth + 10 / totalDuration) * 100);
     }, 10);
 
+    startAutoNextStoryTimer(); // İlk render'da otomatik geçiş zamanlayıcısını başlat
+
     const timer = setTimeout(() => {
       handleNextStory();
     }, totalDuration);
@@ -81,6 +101,7 @@ function FullScreenStory({ selectedStory, selectedAvatar, onClose, setSelectedSt
     return () => {
       clearInterval(interval);
       clearTimeout(timer);
+      clearTimeout(autoNextStoryTimer); // Komponent kaldırıldığında otomatik geçiş zamanlayıcısını temizle
     };
   }, [selectedStory, handleNextStory]);
 
@@ -108,10 +129,15 @@ function FullScreenStory({ selectedStory, selectedAvatar, onClose, setSelectedSt
                       <img
                         src={storyItem.url}
                         alt={`story-${index}`}
-                        className='w-[100%] h-auto  md:rounded-xl'
-                        
+                        className='w-[100%] h-auto md:rounded-xl'
                       />
                     )}
+
+                    <div className="story-lines-container">
+                      {Array.from({ length: selectedAvatar.story.length }, (_, i) => (
+                        <div key={i} className={`story-line ${i <= currentStoryIndex ? 'active' : ''}`}></div>
+                      ))}
+                    </div>
                   </>
                 )}
               </div>

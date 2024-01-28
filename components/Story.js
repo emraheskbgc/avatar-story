@@ -67,41 +67,6 @@ export default function Story() {
   }, [selectedStory]);
 
   // Seçilen hikayenin süresi dolduğunda tetiklenen etkileşim:
-const avatarStatuses = {};
-useEffect(() => {
-  if (selectedStory && selectedAvatarId) {
-    const totalDuration = selectedStory.reduce(
-      (acc, story) => acc + (story.duration || 5000),
-      0
-    );
-
-    const timer = setTimeout(() => {
-      const currentAvatarIndex = avatars.findIndex(avatar => avatar.id === selectedAvatar.id);
-      if (currentAvatarIndex < avatars.length - 1) {
-        const nextAvatar = avatars[currentAvatarIndex + 1];
-        setSelectedStory(nextAvatar.story);
-        setSelectedAvatar(nextAvatar);
-        setIsAnimationActive(true);  // Animasyonu başlat
-        setShowScrollButton(false);
-      } else {
-        setSelectedStory(null);
-        if (avatarStatuses[selectedAvatar.id]) {
-          avatarStatuses[selectedAvatar.id].currentIndex = 0;
-        } else {
-          avatarStatuses[selectedAvatar.id] = {
-            currentIndex: 0
-          };
-        }
-      }
-    }, totalDuration);
-
-    return () => {
-      clearTimeout(timer);
-       setIsAnimationActive(false);  // Bu satırı kaldırın veya yorum satırına alın.
-    }
-  }
-}, [selectedStory, selectedAvatar]);
-
 
   
 
