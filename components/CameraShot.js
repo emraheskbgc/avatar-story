@@ -41,7 +41,7 @@ function CameraShot({ onCloseCamera, onCapture, onShareToStory }) {
   
   const [videoConstraints, setVideoConstraints] = useState({
     facingMode: "user",
-    height: 932,
+    height: 600,
     width: 480
   });
   useEffect(() => {
