@@ -72,7 +72,7 @@ function FullScreenStory({ selectedStory, selectedAvatar, onClose, setSelectedSt
         {selectedAvatar && selectedAvatar.story && (
           <div>
             {selectedAvatar.story.map((storyItem, index) => (
-              <div key={index} className="text-gray-100">
+              <div key={index} className="text-gray-100 story-slide-in">
                 {currentStoryIndex === index && (
                   <>
                     {storyItem.type === 'image' && (
