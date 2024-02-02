@@ -7,7 +7,7 @@
       "story": [
         {
           "type": "image",
-          "url": "https://images.pexels.com/photos/9470805/pexels-photo-9470805.jpeg?w=300",
+          "url": "https://images.pexels.com/photos/9470805/pexels-photo-9470805.jpeg",
           "duration": 5000
         }
       ]
@@ -20,12 +20,12 @@
       "story": [
         {
           "type": "image",
-          "url": "https://images.pexels.com/photos/9470805/pexels-photo-9470805.jpeg?w=300",
+          "url": "https://images.unsplash.com/photo-1578852612716-854e527abf2e?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8c3Rvcnl8ZW58MHx8MHx8fDA%3D",
           "duration": 5000
         },
         {
           "type": "image",
-          "url": "https://images.pexels.com/photos/9733197/pexels-photo-9733197.jpeg?w=300",
+          "url": "https://images.pexels.com/photos/9733197/pexels-photo-9733197.jpeg",
           "duration": 6000
         }
        
@@ -39,7 +39,7 @@
       "story": [
         {
           "type": "image",
-          "url": "https://images.pexels.com/photos/9733197/pexels-photo-9733197.jpeg?w=300",
+          "url": "https://images.pexels.com/photos/9470805/pexels-photo-9470805.jpeg",
           "duration": 6000
         }
       ]
@@ -47,17 +47,17 @@
     {
       "id": 4,
       "name": "Avatar 3",
-      "avatar": "https://reqres.in/img/faces/1-image.jpg",
+      "avatar": "https://reqres.in/img/faces/3-image.jpg",
 
       "story": [
         {
           "type": "image",
-          "url": "https://images.pexels.com/photos/9470805/pexels-photo-9470805.jpeg?w=300",
+          "url": "https://images.unsplash.com/photo-1532012197267-da84d127e765?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHN0b3J5fGVufDB8fDB8fHww",
           "duration": 5000
         },
         {
           "type": "image",
-          "url": "https://images.pexels.com/photos/9733197/pexels-photo-9733197.jpeg?w=300",
+          "url": "https://plus.unsplash.com/premium_photo-1668198395288-bd83fbba6400?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fHN0b3J5fGVufDB8fDB8fHww",
           "duration": 6000
         }
       ]
@@ -65,12 +65,12 @@
     {
       "id": 5,
       "name": "Avatar 4",
-      "avatar": "https://reqres.in/img/faces/2-image.jpg",
+      "avatar": "https://reqres.in/img/faces/4-image.jpg",
 
       "story": [
         {
           "type": "image",
-          "url": "https://images.pexels.com/photos/9733197/pexels-photo-9733197.jpeg?w=300",
+          "url": "https://images.unsplash.com/photo-1544366161-5fa89487037e?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NzB8fHN0b3J5fGVufDB8fDB8fHww",
           "duration": 6000
         }
       ]
@@ -78,17 +78,17 @@
     {
       "id": 6,
       "name": "Avatar 5",
-      "avatar": "https://reqres.in/img/faces/1-image.jpg",
+      "avatar": "https://reqres.in/img/faces/5-image.jpg",
 
       "story": [
         {
           "type": "image",
-          "url": "https://images.pexels.com/photos/9470805/pexels-photo-9470805.jpeg?w=300",
+          "url": "https://plus.unsplash.com/premium_photo-1671581559799-5d370f768feb?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8c3Rvcnl8ZW58MHx8MHx8fDA%3D",
           "duration": 5000
         },
         {
           "type": "image",
-          "url": "https://images.pexels.com/photos/9733197/pexels-photo-9733197.jpeg?w=300",
+          "url": "https://images.unsplash.com/reserve/LJIZlzHgQ7WPSh5KVTCB_Typewriter.jpg?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fHN0b3J5fGVufDB8fDB8fHww",
           "duration": 6000
         }
       ]
@@ -96,12 +96,12 @@
     {
       "id": 7,
       "name": "Avatar 6",
-      "avatar": "https://reqres.in/img/faces/2-image.jpg",
+      "avatar": "https://reqres.in/img/faces/6-image.jpg",
 
       "story": [
         {
           "type": "image",
-          "url": "https://images.pexels.com/photos/9733197/pexels-photo-9733197.jpeg?w=300",
+          "url": "https://images.unsplash.com/photo-1516780236580-ef416334d5b4?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjN8fHN0b3J5fGVufDB8fDB8fHww",
           "duration": 6000
         }
       ]
@@ -109,17 +109,17 @@
     {
       "id": 8,
       "name": "Avatar 7",
-      "avatar": "https://reqres.in/img/faces/1-image.jpg",
+      "avatar": "https://reqres.in/img/faces/7-image.jpg",
 
       "story": [
         {
           "type": "image",
-          "url": "https://images.pexels.com/photos/9470805/pexels-photo-9470805.jpeg?w=300",
+          "url": "https://images.unsplash.com/photo-1470790376778-a9fbc86d70e2?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fHN0b3J5fGVufDB8fDB8fHww",
           "duration": 5000
         },
         {
           "type": "image",
-          "url": "https://images.pexels.com/photos/9733197/pexels-photo-9733197.jpeg?w=300",
+          "url": "https://images.unsplash.com/photo-1519074069444-1ba4fff66d16?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjd8fHN0b3J5fGVufDB8fDB8fHww",
           "duration": 6000
         }
       ]
@@ -127,12 +127,12 @@
     {
       "id": 9,
       "name": "Avatar 8",
-      "avatar": "https://reqres.in/img/faces/2-image.jpg",
+      "avatar": "https://reqres.in/img/faces/8-image.jpg",
 
       "story": [
         {
           "type": "image",
-          "url": "https://images.pexels.com/photos/9733197/pexels-photo-9733197.jpeg?w=300",
+          "url": "https://plus.unsplash.com/premium_photo-1664809961748-67516016a2d5?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjV8fHN0b3J5fGVufDB8fDB8fHww",
           "duration": 6000
         }
       ]
@@ -140,17 +140,17 @@
     {
       "id": 10,
       "name": "Avatar 9",
-      "avatar": "https://reqres.in/img/faces/1-image.jpg",
+      "avatar": "https://reqres.in/img/faces/9-image.jpg",
 
       "story": [
         {
           "type": "image",
-          "url": "https://images.pexels.com/photos/9470805/pexels-photo-9470805.jpeg?w=300",
+          "url": "https://plus.unsplash.com/premium_photo-1664373232947-19aed5052584?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzN8fHN0b3J5fGVufDB8fDB8fHww",
           "duration": 5000
         },
         {
           "type": "image",
-          "url": "https://images.pexels.com/photos/9733197/pexels-photo-9733197.jpeg?w=300",
+          "url": "https://plus.unsplash.com/premium_photo-1664046912334-134dbd487444?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDF8fHN0b3J5fGVufDB8fDB8fHww",
           "duration": 6000
         }
       ]
@@ -163,7 +163,7 @@
       "story": [
         {
           "type": "image",
-          "url": "https://images.pexels.com/photos/9733197/pexels-photo-9733197.jpeg?w=300",
+          "url": "https://images.unsplash.com/photo-1516780236580-ef416334d5b4?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjN8fHN0b3J5fGVufDB8fDB8fHww",
           "duration": 6000
         }
       ]
@@ -171,17 +171,17 @@
     {
       "id": 12,
       "name": "Avatar 11",
-      "avatar": "https://reqres.in/img/faces/1-image.jpg",
+      "avatar": "https://reqres.in/img/faces/10-image.jpg",
 
       "story": [
         {
           "type": "image",
-          "url": "https://images.pexels.com/photos/9470805/pexels-photo-9470805.jpeg?w=300",
+          "url": "https://images.unsplash.com/photo-1495640452828-3df6795cf69b?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDB8fHN0b3J5fGVufDB8fDB8fHww",
           "duration": 5000
         },
         {
           "type": "image",
-          "url": "https://images.pexels.com/photos/9733197/pexels-photo-9733197.jpeg?w=300",
+          "url": "https://images.unsplash.com/photo-1553060146-71667aa3f223?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDR8fHN0b3J5fGVufDB8fDB8fHww",
           "duration": 6000
         }
       ]
@@ -189,12 +189,12 @@
     {
       "id": 13,
       "name": "Avatar 13",
-      "avatar": "https://reqres.in/img/faces/2-image.jpg",
+      "avatar": "https://reqres.in/img/faces/11-image.jpg",
 
       "story": [
         {
           "type": "image",
-          "url": "https://images.pexels.com/photos/9733197/pexels-photo-9733197.jpeg?w=300",
+          "url": "https://images.unsplash.com/photo-1500462918059-b1a0cb512f1d?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDJ8fHN0b3J5fGVufDB8fDB8fHww",
           "duration": 6000
         }
       ]
@@ -202,12 +202,12 @@
     {
       "id": 14,
       "name": "Avatar 14",
-      "avatar": "https://reqres.in/img/faces/2-image.jpg",
+      "avatar": "https://reqres.in/img/faces/12-image.jpg",
 
       "story": [
         {
           "type": "image",
-          "url": "https://images.pexels.com/photos/9733197/pexels-photo-9733197.jpeg?w=300",
+          "url": "https://images.unsplash.com/photo-1516780236580-ef416334d5b4?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjN8fHN0b3J5fGVufDB8fDB8fHww",
           "duration": 6000
         }
       ]
@@ -215,12 +215,12 @@
     {
       "id": 15,
       "name": "Avatar 15",
-      "avatar": "https://reqres.in/img/faces/2-image.jpg",
+      "avatar": "https://reqres.in/img/faces/1-image.jpg",
 
       "story": [
         {
           "type": "image",
-          "url": "https://images.pexels.com/photos/9733197/pexels-photo-9733197.jpeg?w=300",
+          "url": "https://images.unsplash.com/photo-1495640452828-3df6795cf69b?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDB8fHN0b3J5fGVufDB8fDB8fHww",
           "duration": 6000
         }
       ]
@@ -233,7 +233,7 @@
       "story": [
         {
           "type": "image",
-          "url": "https://images.pexels.com/photos/9733197/pexels-photo-9733197.jpeg?w=300",
+          "url": "https://images.unsplash.com/photo-1535182539448-8bf2aee81484?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDh8fHN0b3J5fGVufDB8fDB8fHww",
           "duration": 6000
         }
       ]
@@ -241,17 +241,17 @@
     {
       "id": 17,
       "name": "Avatar 17",
-      "avatar": "https://reqres.in/img/faces/1-image.jpg",
+      "avatar": "https://reqres.in/img/faces/3-image.jpg",
 
       "story": [
         {
           "type": "image",
-          "url": "https://images.pexels.com/photos/9470805/pexels-photo-9470805.jpeg?w=300",
+          "url": "https://images.unsplash.com/photo-1500099817043-86d46000d58f?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDZ8fHN0b3J5fGVufDB8fDB8fHww",
           "duration": 5000
         },
         {
           "type": "image",
-          "url": "https://images.pexels.com/photos/9733197/pexels-photo-9733197.jpeg?w=300",
+          "url": "https://plus.unsplash.com/premium_photo-1665454931497-1355f79c5f4d?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDl8fHN0b3J5fGVufDB8fDB8fHww",
           "duration": 6000
         }
       ]
@@ -259,17 +259,17 @@
     {
       "id": 18,
       "name": "Avatar 18",
-      "avatar": "https://reqres.in/img/faces/1-image.jpg",
+      "avatar": "https://reqres.in/img/faces/4-image.jpg",
 
       "story": [
         {
           "type": "image",
-          "url": "https://images.pexels.com/photos/9470805/pexels-photo-9470805.jpeg?w=300",
+          "url": "https://images.unsplash.com/photo-1518337204671-d648c3e13cf6?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTJ8fHN0b3J5fGVufDB8fDB8fHww",
           "duration": 5000
         },
         {
           "type": "image",
-          "url": "https://images.pexels.com/photos/9733197/pexels-photo-9733197.jpeg?w=300",
+          "url": "https://images.unsplash.com/photo-1542178432-52211bc52073?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTB8fHN0b3J5fGVufDB8fDB8fHww",
           "duration": 6000
         }
       ]
@@ -277,17 +277,17 @@
     {
       "id": 19,
       "name": "Avatar 19",
-      "avatar": "https://reqres.in/img/faces/1-image.jpg",
+      "avatar": "https://reqres.in/img/faces/5-image.jpg",
 
       "story": [
         {
           "type": "image",
-          "url": "https://images.pexels.com/photos/9470805/pexels-photo-9470805.jpeg?w=300",
+          "url": "https://plus.unsplash.com/premium_photo-1673809125491-0f38d88c6a9e?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTd8fHN0b3J5fGVufDB8fDB8fHww",
           "duration": 5000
         },
         {
           "type": "image",
-          "url": "https://images.pexels.com/photos/9733197/pexels-photo-9733197.jpeg?w=300",
+          "url": "https://images.unsplash.com/photo-1618570364749-915149eb894a?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjJ8fHN0b3J5fGVufDB8fDB8fHww",
           "duration": 6000
         }
       ]
@@ -295,17 +295,17 @@
     {
       "id": 20,
       "name": "Avatar 20",
-      "avatar": "https://reqres.in/img/faces/1-image.jpg",
+      "avatar": "https://reqres.in/img/faces/7-image.jpg",
 
       "story": [
         {
           "type": "image",
-          "url": "https://images.pexels.com/photos/9470805/pexels-photo-9470805.jpeg?w=300",
+          "url": "https://images.unsplash.com/photo-1561072750-bd444241e933?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTZ8fHN0b3J5fGVufDB8fDB8fHww",
           "duration": 5000
         },
         {
           "type": "image",
-          "url": "https://images.pexels.com/photos/9733197/pexels-photo-9733197.jpeg?w=300",
+          "url": "https://plus.unsplash.com/premium_photo-1664529914557-ee01920185e2?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjF8fHN0b3J5fGVufDB8fDB8fHww",
           "duration": 6000
         }
       ]
@@ -313,17 +313,17 @@
     {
       "id": 21,
       "name": "Avatar 21",
-      "avatar": "https://reqres.in/img/faces/1-image.jpg",
+      "avatar": "https://reqres.in/img/faces/6-image.jpg",
 
       "story": [
         {
           "type": "image",
-          "url": "https://images.pexels.com/photos/9470805/pexels-photo-9470805.jpeg?w=300",
+          "url": "https://images.unsplash.com/photo-1487147264018-f937fba0c817?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Njh8fHN0b3J5fGVufDB8fDB8fHww",
           "duration": 5000
         },
         {
           "type": "image",
-          "url": "https://images.pexels.com/photos/9733197/pexels-photo-9733197.jpeg?w=300",
+          "url": "https://plus.unsplash.com/premium_photo-1664102191732-6a253403d8bb?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjV8fHN0b3J5fGVufDB8fDB8fHww",
           "duration": 6000
         }
       ]
@@ -331,17 +331,17 @@
     {
       "id": 22,
       "name": "Avatar 22",
-      "avatar": "https://reqres.in/img/faces/1-image.jpg",
+      "avatar": "https://reqres.in/img/faces/9-image.jpg",
 
       "story": [
         {
           "type": "image",
-          "url": "https://images.pexels.com/photos/9470805/pexels-photo-9470805.jpeg?w=300",
+          "url": "https://images.unsplash.com/photo-1544366161-5fa89487037e?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NzB8fHN0b3J5fGVufDB8fDB8fHww",
           "duration": 5000
         },
         {
           "type": "image",
-          "url": "https://images.pexels.com/photos/9733197/pexels-photo-9733197.jpeg?w=300",
+          "url": "https://plus.unsplash.com/premium_photo-1670430932511-ce1929259fed?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nzd8fHN0b3J5fGVufDB8fDB8fHww",
           "duration": 6000
         }
       ]

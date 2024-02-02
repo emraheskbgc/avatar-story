@@ -36,11 +36,11 @@ function FullScreenStory({ selectedStory, selectedAvatar, onClose, setSelectedSt
     if (currentStoryIndex === 0) {
       const currentAvatarIndex = avatarDatas.findIndex((avatar) => avatar.id === selectedAvatar.id);
       const prevAvatar = avatarDatas[currentAvatarIndex - 1];
-
+  
       if (prevAvatar) {
         setSelectedStory(prevAvatar.story);
         setSelectedAvatar(prevAvatar);
-        setCurrentStoryIndex(prevAvatar.story.length - 1);
+        setCurrentStoryIndex(prevAvatar.story.length - 1); // Son hikayeye geç
         setProgressBarWidth(0);
       } else {
         onClose();
@@ -51,9 +51,22 @@ function FullScreenStory({ selectedStory, selectedAvatar, onClose, setSelectedSt
     }
   };
 
-  const handleContainerClick = () => {
+  const handleContainerClick = (e) => {
+
+  // Ekranın genişliği ve tıklanan noktanın x koordinatını al
+  const screenWidth = window.innerWidth;
+  const clickX = e.clientX;
+
+  // Ekranın ortasına göre kontrol yap
+  if (clickX > screenWidth / 2) {
+    // Sağ tarafa tıklanırsa ileri git
     handleNextStory();
-  };
+  } else {
+    // Sol tarafa tıklanırsa geri git
+    handlePrevStory();
+  }
+};
+  
 
   return (
     <div className="fullScreenStyle" onClick={handleContainerClick}>
