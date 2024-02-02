@@ -17,6 +17,8 @@ export default function Story() {
   const [selectedAvatar, setSelectedAvatar] = useState(null); // Seçilen avatarı saklayın
   const [showScrollButton, setShowScrollButton] = useState(true); //scroll butonların gösterilip gizleneceğini kontrol eder
 
+  const [activeAvatarIds, setActiveAvatarIds] = useState([]);
+
 
   const [isAnimationActive, setIsAnimationActive] = useState(false);
   const [selectedAvatarId, setSelectedAvatarId] = useState(null);
@@ -57,9 +59,17 @@ export default function Story() {
     setSelectedAvatar(avatar);
     setSelectedAvatarId(avatar.id);   
     setShowScrollButton(false);
-   
+
     
+      setActiveAvatarIds((prevIds) => [...prevIds, avatar.id]);
+    
+
+    
+
   };
+
+  
+
   useEffect(() => {
     if (!selectedStory) {
       setShowScrollButton(true);
@@ -106,7 +116,8 @@ export default function Story() {
         className="flex space-x-2  overflow-x-scroll bg-white border-gray-200 p-4 scroll-smooth scrollbar-hide"
       >
         <div onClick={() => handleAvatarClick(avatars[0])}>
-          <div className="relative bg-gradient-to-tr from-yellow-500 to-red-600 p-[1.5px] rounded-full">
+          <div className={`relative ${ activeAvatarIds.includes(avatars[0].id)
+            ? "bg-gray-500": "bg-gradient-to-tr from-yellow-500 to-red-600"} p-[1.5px] rounded-full`}>
             <div className="bg-white rounded-full p-1">
               <img
                 className="w-14 h-14 cursor-pointer rounded-full"
@@ -130,7 +141,8 @@ export default function Story() {
             avatarSrc={avatar.avatar}
             name={avatar.name}
             onClick={() => handleAvatarClick(avatar)}
-          />
+            active={activeAvatarIds.includes(avatar.id)}   
+               />
         ))}
       </div>
       {showScrollButton && (
